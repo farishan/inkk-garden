@@ -6,7 +6,9 @@ const state = () => ({
 });
 
 const getters = {
-  getPlantById: (state) => (id) => state.data.find((plant) => plant.id === id),
+  getPlantById: (state) => (id) => (
+    { ...state.data.find((plant) => plant.id === id) }
+  ),
 };
 
 export default {

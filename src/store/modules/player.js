@@ -6,14 +6,21 @@ const state = () => ({
 });
 
 const actions = {
-  addPlant({ commit, rootGetters }, id) {
+  addPlant({
+    dispatch, state, commit, rootGetters,
+  }, id) {
     const plant = rootGetters.getPlantById(id);
     console.log('Add plant to player:', plant);
 
     // add unique id to plant
     plant.id = ID();
+    // add plant position
+    plant.position = state.plants.length;
 
     commit('addPlant', plant);
+
+    // add plant to garden's slots
+    dispatch('sync', null, { root: true });
   },
 };
 

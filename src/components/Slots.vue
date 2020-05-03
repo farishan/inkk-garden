@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-for="(slot, index) in $store.state.slots" :key="index">
-      slot
+    <div v-for="(slot, index) in $store.state.garden.slots" :key="index">
+      {{ slot === null ? 'slot' : slot.name }}
     </div>
   </div>
 </template>
