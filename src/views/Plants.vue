@@ -1,7 +1,7 @@
 <template>
   <div class="raw">
     <h3>Raw Database</h3>
-    <div v-for="(plant, index) in $store.state.plants.plants" :key="index">
+    <div v-for="(plant, index) in $store.state.plants.data" :key="index">
       <h4>{{plant.name}}</h4>
       <img :src="`/images/plants/${plant.image}`">
       <pre>

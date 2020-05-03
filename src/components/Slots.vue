@@ -1,7 +1,17 @@
 <template>
   <div>
     <div v-for="(slot, index) in $store.state.garden.slots" :key="index">
-      {{ slot === null ? 'slot' : slot.name }}
+      <Potslot :data="slot" />
     </div>
   </div>
 </template>
+
+<script>
+import Potslot from './Potslot.vue';
+
+export default {
+  components: {
+    Potslot,
+  },
+};
+</script>
