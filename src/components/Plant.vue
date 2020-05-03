@@ -111,7 +111,10 @@ export default {
       this.$store.dispatch('collect', this.data);
     },
     handleClick() {
-      this.$store.dispatch('hydrate', this.data);
+      if (this.$store.state.watering.active) {
+        this.$store.dispatch('hydrate', this.data);
+        this.$store.dispatch('toggleWatering');
+      }
     },
   },
 };

@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import time from './modules/time';
 import player from './modules/player';
 import plants from './modules/plants';
+import watering from './modules/watering';
 import garden from './modules/garden';
 
 Vue.use(Vuex);
@@ -37,5 +38,6 @@ export default new Vuex.Store({
     plants,
     player,
     garden,
+    watering,
   },
 });
