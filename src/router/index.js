@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Plants from '../views/Plants.vue';
 import Player from '../views/Player.vue';
 import Garden from '../views/Garden.vue';
+import WateringCans from '../views/WateringCans.vue';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/garden',
     name: 'garden',
     component: Garden,
+  },
+  {
+    path: '/watering-cans',
+    name: 'watering-cans',
+    component: WateringCans,
   },
   // {
   //   path: '/about',

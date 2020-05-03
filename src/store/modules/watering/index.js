@@ -3,8 +3,17 @@ const state = () => ({
   cans: [
     {
       id: 1,
-      name: 'watering can 1',
+      name: 'Watering Can',
+      water: 1,
       capacity: 1,
+      image: 'watering_can.png',
+    },
+    {
+      id: 2,
+      name: 'Inked Watering Can',
+      water: 5,
+      capacity: 5,
+      image: 'inked_watering_can.png',
     },
   ],
   active: false,

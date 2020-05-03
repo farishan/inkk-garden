@@ -1,10 +1,10 @@
 <template>
   <div>
-    {{ JSON.stringify($store.state.watering.cans.data) }}
+    {{ JSON.stringify(data) }}
     <img
       class="mx-auto border cursor-pointer"
       :class="$store.state.watering.active ? 'border-gray-900' : ''"
-      src="/images/watering_can.png"
+      :src="`/images/${data.image}`"
       @click="handleClick"
     />
   </div>
@@ -12,9 +12,16 @@
 
 <script>
 export default {
+  props: {
+    data: Object,
+  },
   methods: {
     handleClick() {
-      this.$store.dispatch('toggleWatering');
+      if (this.$store.state.watering.active) {
+        this.$store.dispatch('deselectWateringCan');
+      } else {
+        this.$store.dispatch('selectWateringCan', this.data);
+      }
     },
   },
 };
