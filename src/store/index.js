@@ -11,10 +11,6 @@ export default new Vuex.Store({
   state: {
   },
   mutations: {
-    rerender(state) {
-      const oldPlants = state.player.plants;
-      state.player.plants = oldPlants;
-    },
   },
   actions: {
     sync({ dispatch }) {
@@ -26,7 +22,7 @@ export default new Vuex.Store({
       // Plants photosynthesis
       for (let index = 0; index < state.player.plants.length; index += 1) {
         const plant = state.player.plants[index];
-        plant.photosynthesis();
+        plant.check();
       }
 
       dispatch('sync');

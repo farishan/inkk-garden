@@ -1,6 +1,5 @@
 <template>
   <div class="border relative">
-
     <div class="plant" v-if="!data || data === null">
       null
     </div>
@@ -8,9 +7,26 @@
     <div
       v-if="data && data !== null"
       class="plant"
-      :style="{backgroundImage: `url('/images/plants/${data.image}')`}"
+      :style="{backgroundImage: `url('/images/plants/${image}')`}"
+      @click="handleClick"
     >
-      {{ data.name }}
+      <span v-if="!data.ready && !data.dry" class="absolute text-xs top-0 left-0">
+        {{data.name}}
+        <span v-if="data.stage===0"> Seed</span>
+        <span v-if="data.stage===1"> Bud</span>
+      </span>
+
+      <small v-show="data.dry" class="water-alert"><b>need water!</b></small>
+
+      <span v-show="data.ready">
+        <button
+          class="collect-btn absolute left-0 bottom-0 z-10 w-full bg-gray-400"
+          @click="collect($event)"
+        >
+          collect
+        </button>
+      </span>
+
       <bar
         :width="progressWidth"
         :classes="'bg-green-400'"
@@ -45,6 +61,17 @@ export default {
     data: Object,
   },
   computed: {
+    image() {
+      let image = 'seed.png';
+
+      if (this.data.stage === 1) {
+        image = this.data.imageBud;
+      } else if (this.data.stage === 2) {
+        image = this.data.image;
+      }
+
+      return image;
+    },
     progressWidth() {
       const param = this.data.progress;
       const param1 = 100;
@@ -72,6 +99,15 @@ export default {
       const calc = param ? param / param1 : 0;
       return calc > 0 ? calc : 0;
     },
+    collect(e) {
+      // selectingAction = false; player.manual_collect++
+      e.preventDefault();
+      e.stopPropagation();
+      this.$store.dispatch('collect', this.data);
+    },
+    handleClick() {
+      this.$store.dispatch('hydrate', this.data);
+    },
   },
 };
 </script>
@@ -83,8 +119,28 @@ export default {
     height: 70px;
   }
 
+  .water-alert {
+    @apply absolute left-0 w-full text-center text-white;
+    animation: blink 1s ease-in-out;
+    animation-iteration-count: infinite;
+    background-color: red;
+    color: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    padding: .25rem 0;
+  }
+
   @keyframes animate {
     from {background-position: 0 0;}
     to {background-position: -280px 0}
+  }
+
+  @keyframes blink {
+    0% {opacity: 1}
+    25% {opacity: 1}
+    50% {opacity: 0}
+    75% {opacity: 1}
+    100% {opacity: 1}
   }
 </style>

@@ -8,7 +8,10 @@ const state = () => ({
 
 const actions = {
   addPlant({
-    dispatch, state, commit, rootGetters,
+    dispatch,
+    state,
+    commit,
+    rootGetters,
   }, id) {
     const plant = rootGetters.getPlantById(id);
     console.log('Add plant to player:', plant);
@@ -24,6 +27,14 @@ const actions = {
 
     // add plant to garden's slots
     dispatch('sync', null, { root: true });
+  },
+  collect({ state }, plant) {
+    console.log('collecting...', plant, state);
+    plant.collect();
+  },
+  hydrate({ state }, plant) {
+    console.log('hydrating...', plant, state);
+    plant.hydrate();
   },
 };
 

@@ -4,7 +4,6 @@ const slots = {
   }),
   mutations: {
     addPlantToSlot(state, plant) {
-      console.log('add plant to slot', plant);
       state.slots[plant.position] = plant;
     },
   },

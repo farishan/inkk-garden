@@ -8,7 +8,7 @@
  */
 
 const state = () => ({
-  speed: 2, // seconds
+  speed: 0.5, // seconds
   on: false,
   days: 0,
   periods: 0,
