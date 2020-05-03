@@ -14,14 +14,14 @@ const actions = {
     rootGetters,
   }, id) {
     const plant = rootGetters.getPlantById(id);
-    console.log('Add plant to player:', plant);
-
     // Generate new plant
     const newPlant = new Plant({
       ...plant,
       id: ID(),
       position: state.plants.length,
     });
+
+    console.log('Add plant to player:', newPlant, newPlant.position, state.plants.length);
 
     commit('addPlant', newPlant);
 

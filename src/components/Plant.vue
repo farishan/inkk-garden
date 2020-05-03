@@ -1,52 +1,46 @@
 <template>
-  <div class="border relative">
-    <div class="plant" v-if="!data || data === null">
-      null
-    </div>
+  <div
+    v-if="data && data !== null"
+    class="plant w-full h-full"
+    :style="{backgroundImage: `url('/images/plants/${image}')`}"
+    @click="handleClick"
+  >
+    <span v-if="!data.ready && !data.dry" class="absolute text-xs top-0 left-0">
+      {{data.name}}
+      <span v-if="data.stage===0"> Seed</span>
+      <span v-if="data.stage===1"> Bud</span>
+    </span>
 
-    <div
-      v-if="data && data !== null"
-      class="plant"
-      :style="{backgroundImage: `url('/images/plants/${image}')`}"
-      @click="handleClick"
-    >
-      <span v-if="!data.ready && !data.dry" class="absolute text-xs top-0 left-0">
-        {{data.name}}
-        <span v-if="data.stage===0"> Seed</span>
-        <span v-if="data.stage===1"> Bud</span>
-      </span>
+    <small v-show="data.dry" class="water-alert"><b>need water!</b></small>
 
-      <small v-show="data.dry" class="water-alert"><b>need water!</b></small>
+    <span v-show="data.ready">
+      <button
+        class="collect-btn absolute left-0 bottom-0 z-10 w-full bg-gray-400"
+        @click="collect($event)"
+      >
+        collect
+      </button>
+    </span>
 
-      <span v-show="data.ready">
-        <button
-          class="collect-btn absolute left-0 bottom-0 z-10 w-full bg-gray-400"
-          @click="collect($event)"
-        >
-          collect
-        </button>
-      </span>
-
-      <bar
-        :width="progressWidth"
-        :classes="'bg-green-400'"
-        :customStyle="{bottom: '3px'}"
-      />
-      <bar
-        :width="waterWidth"
-        :classes="'bg-blue-400 bottom-0'"
-      />
-      <bar
-        :width="cookieWidth"
-        :classes="'bg-black top-0'"
-        v-show="data.ready"
-      />
-      <bar
-        :width="healthWidth"
-        :classes="'bg-red-400 top-0'"
-        v-show="data.dry"
-      />
-    </div>
+    <bar
+      :width="progressWidth"
+      :classes="'bg-green-400'"
+      :customStyle="{bottom: '3px'}"
+    />
+    <bar
+      :width="waterWidth"
+      :classes="'bg-blue-400 bottom-0'"
+    />
+    <bar
+      :width="cookieWidth"
+      :classes="'bg-black top-0'"
+      v-show="data.ready"
+    />
+    <bar
+      :width="healthWidth"
+      :classes="'bg-red-400 top-0'"
+      v-show="data.dry"
+    />
   </div>
 </template>
 
@@ -115,8 +109,6 @@ export default {
 <style scoped>
   .plant {
     animation: animate 1s steps(4) infinite;
-    width: 70px;
-    height: 70px;
   }
 
   .water-alert {

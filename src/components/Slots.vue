@@ -1,17 +1,24 @@
 <template>
   <div class="flex flex-wrap justify-center">
     <div v-for="(slot, index) in $store.state.garden.slots" :key="index">
-      <Potslot :data="slot" />
+      <pot class="pot" v-if="slot !== null">
+        <plant :data="slot" />
+      </pot>
+      <pot class="pot" v-else>
+        null
+      </pot>
     </div>
   </div>
 </template>
 
 <script>
-import Potslot from './Potslot.vue';
+import Plant from './Plant.vue';
+import Pot from './Pot.vue';
 
 export default {
   components: {
-    Potslot,
+    Pot,
+    Plant,
   },
 };
 </script>
