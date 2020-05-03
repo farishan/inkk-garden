@@ -1,0 +1,146 @@
+[
+	{
+		"name": "Flookie",
+		"images": [
+			"seed.png",
+			"flookie_bud.png",
+			"flookie.png"
+		],
+		"description": "Flookie is a common, small-sized plant and can be found mostly on tropical cookie islands. This plant produces cookies a lot in small amount."
+	},
+	{
+		"name": "Giant Flookie",
+		"images": [
+			"seed.png",
+			"giant_flookie_bud.png",
+			"giant_flookie.png"
+		],
+		"description": "If you ever see a Flookie, this one is the taller version. Only can be found in lush tropical regions."
+	},
+	{
+		"name": "Clovie",
+		"images": [
+			"seed.png",
+			"clovie_bud.png",
+			"clovie.png"
+		],
+		"description": "Clovie is a small-sized and pretty-enough plant to be a decoration on your bathroom."
+	},
+	{
+		"name": "Plantie",
+		"images": [
+			"seed.png",
+			"plantie_bud.png",
+			"plantie.png"
+		],
+		"description": "Plantie is a small-sized and pretty-enough plant to be one of my girlfriend's favourite plant."
+	},
+	{
+		"name": "Mushkie",
+		"images": [
+			"seed.png",
+			"mushkie_bud.png",
+			"mushkie.png"
+		],
+		"description": "Do not eat this plant. If eaten, this plant can mess up your gardening schedule. Even though it feels good."
+	},
+	{
+		"name": "Kukweed",
+		"images": [
+			"seed.png",
+			"kukweed_bud.png",
+			"kukweed.png"
+		],
+		"description": "Kukweed is categorized as a swamp plants. Usually used by a Crocookiedile to hide."
+	},
+	{
+		"name": "Wiscoonsie",
+		"images": [
+			"seed.png",
+			"wiscoonsie_bud.png",
+			"wiscoonsie.png"
+		],
+		"description": "Wiscoonsie plant can be found in northern region, surrounded by several Domesticated Turkey and Trumpeter Swan."
+	},
+	{
+		"name": "Kuekalyptus",
+		"images": [
+			"seed.png",
+			"kuekalyptus_bud.png",
+			"kuekalyptus.png"
+		],
+		"description": "Kuekalyptus has leaves that collide with each other gracefully."
+	},
+	{
+		"name": "Kuplar",
+		"images": [
+			"seed.png",
+			"kuplar_bud.png",
+			"kuplar.png"
+		],
+		"description": "The cookies that fell from Kuplar feels more delicious and filling."
+	},
+	{
+		"name": "Alkaie",
+		"images": [
+			"seed.png",
+			"alkaie_bud.png",
+			"alkaie.png"
+		],
+		"description": "Alkaie is a water plant that needs water to keep it watery."
+	},
+	{
+		"name": "Kudzu",
+		"images": [
+			"seed.png",
+			"kudzu_bud.png",
+			"kudzu.png"
+		],
+		"description": "Kudzu, also called Japanese arrowroot, is a group of plants in the genus Pueraria, in the pea family Fabaceae, subfamily Faboideae. They are climbing, coiling, and trailing perennial vines native to much of eastern Asia, Southeast Asia, and some Pacific islands. (*real descriptionription from Wikipedia)"
+	},
+	{
+		"name": "Kumbu",
+		"images": [
+			"seed.png",
+			"kumbu_bud.png",
+			"kumbu.png"
+		],
+		"description": "Kumbu has a higher specific compressive strength and a specific tensile strength that rivals steel. The cookies of this plant feels unexpected hard."
+	},
+	{
+		"name": "Acookia",
+		"images": [
+			"seed.png",
+			"acookia_bud.png",
+			"acookia.png"
+		],
+		"description": "Acookia is a large-sized plant and can be found mostly on middle-eastern region. Cookie Imp likes to climb this plant!"
+	},
+	{
+		"name": "Katun",
+		"images": [
+			"seed.png",
+			"katun_bud.png",
+			"katun.png"
+		],
+		"description": "Soft leaves from Katun plant can make you more comfortable when gardening. The cookies also feels tender."
+	},
+	{
+		"name": "Giant Sekuooia",
+		"images": [
+			"seed.png",
+			"giant_sekuooia_bud.png",
+			"giant_sekuooia.png"
+		],
+		"description": "Giant Sekuooia is preferred because of its large and strong shape. Very masculine plant."
+	},
+	{
+		"name": "Anggrek",
+		"images": [
+			"seed.png",
+			"anggrek_bud.png",
+			"anggrek.png"
+		],
+		"description": "Anggrek is the plant of charm. Her beauty will make you want to eat more cookies!"
+	}
+]
