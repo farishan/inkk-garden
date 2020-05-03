@@ -1,5 +1,12 @@
 <template>
-  <div class="bg-white absolute border p-2 z-20 shadow shadow-lg" style="top: 100%;" v-if="show">
+  <div
+    class="bg-white absolute border p-2 z-20 shadow shadow-lg transition duration-200 text-xs"
+    :class="hover ? 'opacity-100' : 'opacity-25'"
+    style="top: 100%;"
+    v-if="show"
+    @mouseenter="hover = true"
+    @mouseleave="hover = false"
+  >
     {{data.name}}<br>
     water: {{data.water}}<br>
     progress: {{data.progress}}<br>
@@ -18,6 +25,11 @@ export default {
   props: {
     data: Object,
     show: Boolean,
+  },
+  data() {
+    return {
+      hover: false,
+    };
   },
   methods: {
     sell(e) {
