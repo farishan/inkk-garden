@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-wrap justify-center">
     <div v-for="(slot, index) in $store.state.garden.slots" :key="index">
       <Potslot :data="slot" />
     </div>

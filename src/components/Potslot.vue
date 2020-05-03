@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="border">
     <div
       class="plant"
       v-if="data === null"
