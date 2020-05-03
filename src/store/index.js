@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import plants from '@/assets/plants.json';
 import time from './modules/time';
-import plants from '../assets/plants.json';
 
 Vue.use(Vuex);
 

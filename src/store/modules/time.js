@@ -1,4 +1,12 @@
 /* eslint-disable no-shadow */
+
+/**
+ * Time - Vuex Store Module
+ *
+ * Made for Inkk Garden game.
+ * Faris Han, 2020
+ */
+
 const state = () => ({
   speed: 2, // seconds
   on: false,
@@ -10,7 +18,6 @@ const getters = {
   period: (state) => (state.periods % 2 === 0 ? 'day' : 'night'),
 };
 
-// actions
 const actions = {
   start({ state, commit }) {
     commit('switch', true);
