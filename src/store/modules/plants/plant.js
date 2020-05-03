@@ -2,7 +2,7 @@ import { random } from '@/utils';
 
 class Plant {
   constructor(options) {
-    this.id = 0;
+    this.id = options.id || 0;
     this.name = options.name;
     this.description = options.description;
     this.image = options.image;

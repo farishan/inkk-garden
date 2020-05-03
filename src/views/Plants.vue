@@ -1,9 +1,13 @@
 <template>
   <div class="raw">
     <h3>Raw Database</h3>
-    <pre>
-      {{ JSON.stringify($store.state.plants, null, 2) }}
-    </pre>
+    <div v-for="(plant, index) in $store.state.plants.plants" :key="index">
+      <h4>{{plant.name}}</h4>
+      <img :src="`/images/plants/${plant.image}`">
+      <pre>
+        {{ JSON.stringify(plant, null, 2) }}
+      </pre>
+    </div>
   </div>
 </template>
 
