@@ -11,11 +11,25 @@ export default new Vuex.Store({
   state: {
   },
   mutations: {
+    rerender(state) {
+      const oldPlants = state.player.plants;
+      state.player.plants = oldPlants;
+    },
   },
   actions: {
     sync({ dispatch }) {
-      console.log('sync');
       dispatch('syncSlots');
+    },
+    update({ state, dispatch }) {
+      // Day changed. Update the state
+
+      // Plants photosynthesis
+      for (let index = 0; index < state.player.plants.length; index += 1) {
+        const plant = state.player.plants[index];
+        plant.photosynthesis();
+      }
+
+      dispatch('sync');
     },
   },
   modules: {

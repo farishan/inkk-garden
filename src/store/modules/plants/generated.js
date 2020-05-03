@@ -2,8 +2,6 @@ import database from '@/assets/plants.json';
 import priceList from './price-list';
 import Plant from './plant';
 
-console.log(priceList);
-
 const generatePlants = () => {
   const pl = priceList;
   const result = [];

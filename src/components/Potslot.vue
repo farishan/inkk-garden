@@ -1,12 +1,12 @@
 <template>
   <div class="border relative">
 
-    <div class="plant" v-if="data === null">
+    <div class="plant" v-if="!data || data === null">
       null
     </div>
 
     <div
-      v-if="data !== null"
+      v-if="data && data !== null"
       class="plant"
       :style="{backgroundImage: `url('/images/plants/${data.image}')`}"
     >

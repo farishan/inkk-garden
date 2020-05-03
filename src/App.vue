@@ -16,6 +16,19 @@ import '@/assets/tailwind.css';
 export default {
   mounted() {
     console.log(this);
+
+    // Starting time
+    this.$store.dispatch('start');
+
+    // Test stopping time
+    setTimeout(() => {
+      this.$store.commit('switch', false);
+    }, 3000);
+
+    // Test re-starting time
+    setTimeout(() => {
+      this.$store.dispatch('start');
+    }, 6000);
   },
 };
 </script>

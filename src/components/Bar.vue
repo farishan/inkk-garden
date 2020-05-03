@@ -13,15 +13,15 @@ export default {
     width: Number,
     classes: String,
   },
-  data() {
-    return {
-      style: {
+  computed: {
+    style() {
+      return {
         transformOriginX: 0,
         transform: `scaleX(${this.width})`,
         height: '3px',
         ...this.customStyle,
-      },
-    };
+      };
+    },
   },
 };
 </script>

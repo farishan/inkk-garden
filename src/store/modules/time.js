@@ -19,7 +19,7 @@ const getters = {
 };
 
 const actions = {
-  start({ state, commit }) {
+  start({ state, commit, dispatch }) {
     commit('switch', true);
     let last = 0; // timestamp of the last render() call
 
@@ -28,6 +28,11 @@ const actions = {
       if (!last || now - last >= state.speed * 1000) {
         last = now;
         commit('addPeriod');
+
+        if (state.periods % 2 === 0) {
+          commit('addDay');
+          dispatch('update', null, { root: true });
+        }
       }
 
       if (state.on) {
@@ -45,6 +50,8 @@ const mutations = {
   },
   addPeriod(state) {
     state.periods += 1;
+  },
+  addDay(state) {
     state.days = Math.floor(state.periods / 2);
   },
 };
