@@ -4,6 +4,8 @@
     class="plant w-full h-full"
     :style="{backgroundImage: `url('/images/plants/${image}')`}"
     @click="handleClick"
+    @mouseover="hover = true"
+    @mouseleave="hover = false"
   >
     <span v-if="!data.ready && !data.dry" class="absolute text-xs top-0 left-0">
       {{data.name}}
@@ -41,18 +43,27 @@
       :classes="'bg-red-400 top-0'"
       v-show="data.dry"
     />
+
+    <tooltip :data="data" :show="hover" />
   </div>
 </template>
 
 <script>
 import Bar from './Bar.vue';
+import Tooltip from './Tooltip.vue';
 
 export default {
   components: {
     Bar,
+    Tooltip,
   },
   props: {
     data: Object,
+  },
+  data() {
+    return {
+      hover: false,
+    };
   },
   computed: {
     image() {
