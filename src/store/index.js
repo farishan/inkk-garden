@@ -1,13 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import plants from '@/assets/plants.json';
 import time from './modules/time';
+import plants from './modules/plants';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    plants,
   },
   mutations: {
   },
@@ -15,5 +14,6 @@ export default new Vuex.Store({
   },
   modules: {
     time,
+    plants,
   },
 });
