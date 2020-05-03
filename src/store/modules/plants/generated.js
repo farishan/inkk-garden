@@ -12,14 +12,15 @@ const generatePlants = () => {
     const p = database[i];
     // generate with dynamic data
     const np = new Plant({
+      id: i + 1,
       name: p.name,
-      image_bud: p.images[1],
+      imageBud: p.images[1],
       image: p.images[2],
       description: p.description,
       category: pl[i].category,
       price: pl[i].price,
-      water_capacity: pl[i].cap,
-      daily_growth: pl[i].growth,
+      waterCapacity: pl[i].cap,
+      dailyGrowth: pl[i].growth,
     });
     // console.log(np, pl[i].growth)
     result.push(np);

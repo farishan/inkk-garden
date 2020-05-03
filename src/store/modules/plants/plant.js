@@ -6,9 +6,9 @@ class Plant {
     this.name = options.name;
     this.description = options.description;
     this.image = options.image;
-    this.image_bud = options.image_bud;
+    this.imageBud = options.imageBud;
     this.position = 0;
-    this.bought_at = { day: 0, period: 'day' };
+    this.boughtAt = 0;
     this.price = options.price;
 
     // 0 = seed
@@ -16,16 +16,16 @@ class Plant {
     // 2 = producing
     this.stage = 0;
     this.progress = 0;
-    this.growth_rate = 0;
-    this.daily_growth = options.daily_growth;
+    this.growthRate = 0;
+    this.dailyGrowth = options.dailyGrowth;
     this.ready = false;
-    this.cookie_health = 21;
-    this.default_cookie_health = 21;
-    this.water = options.water_capacity;
-    this.water_capacity = options.water_capacity;
+    this.cookieHealth = 21;
+    this.defaultCookieHealth = 21;
+    this.water = options.waterCapacity;
+    this.waterCapacity = options.waterCapacity;
     this.dry = false;
     this.health = 21;
-    this.default_health = 21;
+    this.defaultHealth = 21;
     this.isDead = false;
   }
 
@@ -38,7 +38,7 @@ class Plant {
 
     if (hydrated) {
       this.dry = false;
-      this.health = this.default_health;
+      this.health = this.defaultHealth;
     }
 
     if (needPhotosyntesis) this.photosynthesis();
@@ -71,7 +71,7 @@ class Plant {
       // if(!app.player.auto_watering){
       this.water -= 1;
       // }
-      this.progress += random(true, this.daily_growth - 5, this.daily_growth);
+      this.progress += random(true, this.dailyGrowth - 5, this.dailyGrowth);
 
       checkProgress();
       // console.log(this.name + ' progress: ' + this.progress)
@@ -81,22 +81,22 @@ class Plant {
   }
 
   bloom() {
-    this.cookie_health -= 1;
-    if (this.cookie_health === 0) {
+    this.cookieHealth -= 1;
+    if (this.cookieHealth === 0) {
       this.decay();
     }
   }
 
   collect() {
-    this.cookie_health = this.default_cookie_health;
+    this.cookieHealth = this.defaultCookieHealth;
     this.ready = false;
     this.progress = 0;
   }
 
   hydrate() {
     this.dry = false;
-    this.water = this.water_capacity;
-    this.health = this.default_health;
+    this.water = this.waterCapacity;
+    this.health = this.defaultHealth;
   }
 
   dehydrate() {
@@ -112,7 +112,7 @@ class Plant {
   decay() {
     this.progress = 0;
     this.ready = false;
-    this.cookie_health = this.default_cookie_health;
+    this.cookieHealth = this.defaultCookieHealth;
   }
 
   destroy() {
