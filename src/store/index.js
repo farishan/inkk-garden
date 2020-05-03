@@ -23,6 +23,10 @@ export default new Vuex.Store({
       for (let index = 0; index < state.player.plants.length; index += 1) {
         const plant = state.player.plants[index];
         plant.check();
+
+        if (plant.isDead) {
+          dispatch('removePlant', plant);
+        }
       }
 
       dispatch('sync');

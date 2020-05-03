@@ -30,8 +30,6 @@ class Plant {
   }
 
   check() {
-    // console.log('checking my self', this)
-
     const hydrated = this.water > 0;
     const readyToHarvest = this.ready;
     const needPhotosyntesis = hydrated && !readyToHarvest;
@@ -74,7 +72,6 @@ class Plant {
       this.progress += random(true, this.dailyGrowth - 5, this.dailyGrowth);
 
       checkProgress();
-      // console.log(this.name + ' progress: ' + this.progress)
     } else {
       checkProgress();
     }

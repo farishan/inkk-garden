@@ -28,19 +28,27 @@ const actions = {
     // add plant to garden's slots
     dispatch('sync', null, { root: true });
   },
-  collect({ state }, plant) {
-    console.log('collecting...', plant, state);
+  // eslint-disable-next-line no-empty-pattern
+  collect({}, plant) {
     plant.collect();
   },
-  hydrate({ state }, plant) {
-    console.log('hydrating...', plant, state);
+  // eslint-disable-next-line no-empty-pattern
+  hydrate({}, plant) {
     plant.hydrate();
+  },
+  removePlant({ commit, dispatch }, plant) {
+    commit('removePlant', plant);
+    dispatch('sync', null, { root: true });
   },
 };
 
 const mutations = {
   addPlant(state, plant) {
     state.plants.push(plant);
+  },
+  removePlant(state, plant) {
+    const newPlants = state.plants.filter((p) => p.id !== plant.id);
+    state.plants = newPlants;
   },
 };
 

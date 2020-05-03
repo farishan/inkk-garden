@@ -21,14 +21,14 @@ export default {
     this.$store.dispatch('start');
 
     // Test stopping time
-    setTimeout(() => {
-      this.$store.commit('switch', false);
-    }, 3000);
+    // setTimeout(() => {
+    //   this.$store.commit('switch', false);
+    // }, 3000);
 
     // Test re-starting time
-    setTimeout(() => {
-      this.$store.dispatch('start');
-    }, 6000);
+    // setTimeout(() => {
+    //   this.$store.dispatch('start');
+    // }, 6000);
   },
 };
 </script>

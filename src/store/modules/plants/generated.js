@@ -20,7 +20,7 @@ const generatePlants = () => {
       waterCapacity: pl[i].cap,
       dailyGrowth: pl[i].growth,
     });
-    // console.log(np, pl[i].growth)
+
     result.push(np);
   }
   return result;
