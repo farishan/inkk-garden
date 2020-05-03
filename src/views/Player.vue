@@ -1,7 +1,7 @@
 <template>
   <div>
-    <button @click="addPlant">add plant</button>
-    <button @click="addWateringCan">add watering can</button>
+    <button class="border px-2" @click="addPlant">add plant</button>
+    <button class="border px-2" @click="addWateringCan">add watering can</button>
 
     <pre>
     {{ JSON.stringify($store.state.player, null, 2) }}

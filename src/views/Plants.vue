@@ -1,6 +1,5 @@
 <template>
-  <div class="raw">
-    <h3>Raw Database</h3>
+  <div class="raw overflow-y-auto text-left p-4 mx-auto">
     <div v-for="(plant, index) in $store.state.plants.data" :key="index">
       <h4>{{plant.name}}</h4>
       <img :src="`/images/plants/${plant.image}`">
@@ -13,9 +12,7 @@
 
 <style scoped>
   .raw {
-    text-align: left;
-    max-width: 300px;
-    max-height: 600px;
-    overflow-y: auto;
+    max-width: 400px;
+    max-height: 500px;
   }
 </style>
