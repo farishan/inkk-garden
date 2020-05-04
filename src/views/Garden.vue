@@ -5,6 +5,7 @@
     </div>
 
     <Sprinkler />
+    <Collector />
 
     <!-- Render player's watering cans. -->
     <div class="flex justify-center items-center">
@@ -34,6 +35,7 @@ import Slots from '@/components/Slots.vue';
 import Bar from '@/components/Bar.vue';
 import WateringCan from '@/components/WateringCan.vue';
 import Sprinkler from '@/components/Sprinkler.vue';
+import Collector from '@/components/Collector.vue';
 
 export default {
   components: {
@@ -41,6 +43,7 @@ export default {
     Bar,
     WateringCan,
     Sprinkler,
+    Collector,
   },
   computed: {
     progress() {

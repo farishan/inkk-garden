@@ -6,6 +6,7 @@ import plants from './modules/plants';
 import watering from './modules/watering';
 import garden from './modules/garden';
 import sprinkler from './modules/sprinkler';
+import collector from './modules/collector';
 
 Vue.use(Vuex);
 
@@ -26,9 +27,16 @@ export default new Vuex.Store({
         const plant = state.player.plants[index];
         plant.check();
 
+        // sprinkler
         if (state.sprinkler.on) {
           console.log('auto watering');
           plant.hydrate();
+        }
+
+        // collector
+        if (state.collector.on && plant.ready) {
+          console.log('auto collecting');
+          dispatch('collect', plant);
         }
 
         if (plant.isDead) {
@@ -46,5 +54,6 @@ export default new Vuex.Store({
     garden,
     watering,
     sprinkler,
+    collector,
   },
 });
