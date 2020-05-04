@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <div class="text-center pt-2 border w-20">
+  <div class="absolute" style="top: 10px; left: 10px;">
+    <div class="text-center pt-4 border border-gray-600 rounded shadow">
       <div class="text-sm mb-1">Day {{ $store.state.time.days }}</div>
-      <div class="flex items-center justify-center mb-3">
+      <div class="flex items-center justify-center mb-4">
         <div>
           <img
             class="mx-auto"
@@ -19,8 +19,8 @@
       <time-buttons />
     </div>
     <pre>
-    {{ JSON.stringify(this.$store.state.time, null, 2) }}
-    {{ this.$store.getters.period }}
+    <!-- {{ JSON.stringify(this.$store.state.time, null, 2) }} -->
+    <!-- {{ this.$store.getters.period }} -->
     </pre>
   </div>
 </template>
