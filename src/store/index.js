@@ -8,11 +8,15 @@ import garden from './modules/garden';
 import sprinkler from './modules/sprinkler';
 import collector from './modules/collector';
 import shop from './modules/shop';
+import convertPrice from '../utils/price-converter';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    config: {
+      priceCut: 40, // percent
+    },
   },
   mutations: {
   },
@@ -60,6 +64,15 @@ export default new Vuex.Store({
       } else {
         console.log('not enough cookies');
       }
+    },
+    // eslint-disable-next-line no-empty-pattern
+    sellPlant({ state, dispatch, commit }, plant) {
+      console.log('sell plant', plant);
+      // get converted price
+      const cookiesToAdd = convertPrice(100 - state.config.priceCut, plant.price);
+      commit('addCookies', cookiesToAdd);
+      // remove plant
+      dispatch('removePlant', plant);
     },
   },
   modules: {

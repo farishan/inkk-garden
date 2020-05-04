@@ -14,9 +14,9 @@
     ready: {{data.ready}}<br>
     cookiehealth: {{data.cookie_health}}<br>
     health: {{data.health}}
-    <!-- <div class="pt-2">
-      <button class="bg-gray-300 w-full text-center" @click="sell($event)">sell</button>
-    </div> -->
+    <div class="pt-2">
+      <button class="bg-gray-300 w-full text-center" @click="sell">sell</button>
+    </div>
   </div>
 </template>
 
@@ -35,6 +35,8 @@ export default {
     sell(e) {
       e.preventDefault();
       e.stopPropagation();
+
+      this.$store.dispatch('sellPlant', this.data);
     },
   },
 };
