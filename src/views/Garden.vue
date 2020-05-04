@@ -4,26 +4,7 @@
       <Slots />
     </div>
 
-    <p>sprinkler:</p>
-    <!-- <pre>
-     {{ $store.state.sprinkler }}
-    </pre> -->
-    <button
-      class="border"
-      :class="$store.state.sprinkler.on ? 'border-gray-600' : ''"
-      @click="$store.commit('sprinkler/switch', !$store.state.sprinkler.on)"
-    >
-      <img
-        src="/images/water_sprinkler.png"
-        alt="sprinkler"
-        v-if="$store.state.sprinkler.on"
-      >
-      <img
-        src="/images/water_sprinkler_off.png"
-        alt="sprinkler"
-        v-if="!$store.state.sprinkler.on"
-      >
-    </button>
+    <Sprinkler />
 
     <!-- Render player's watering cans. -->
     <div class="flex justify-center items-center">
@@ -52,12 +33,14 @@
 import Slots from '@/components/Slots.vue';
 import Bar from '@/components/Bar.vue';
 import WateringCan from '@/components/WateringCan.vue';
+import Sprinkler from '@/components/Sprinkler.vue';
 
 export default {
   components: {
     Slots,
     Bar,
     WateringCan,
+    Sprinkler,
   },
   computed: {
     progress() {
