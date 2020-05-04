@@ -6,6 +6,7 @@
       <router-link to="/plants">Plants</router-link> |
       <router-link to="/watering-cans">Watering Cans</router-link> |
       <router-link to="/player">Player</router-link> |
+      <router-link to="/shop">Shop</router-link> |
       <router-link to="/garden">Garden</router-link>
     </div>
     <router-view/>
