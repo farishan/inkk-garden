@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border relative cursor-pointer p-2 rounded shadow mb-3"
+    class="border relative cursor-pointer p-2 rounded mb-3"
     :class="isActive ? 'shadow border-gray-600' : ''"
   >
     <div style="height: 50px; width: 50px">

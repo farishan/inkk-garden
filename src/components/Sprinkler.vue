@@ -3,8 +3,8 @@
     <!-- <p>sprinkler:</p>
     <pre>{{ $store.state.sprinkler }}</pre> -->
     <button
-      class="border rounded shadow p-2"
-      :class="$store.state.sprinkler.on ? 'border-gray-600' : ''"
+      class="border rounded p-2"
+      :class="$store.state.sprinkler.on ? 'border-gray-600 shadow' : ''"
       @click="$store.commit('sprinkler/switch', !$store.state.sprinkler.on)"
     >
       <img
