@@ -5,6 +5,7 @@ import player from './modules/player';
 import plants from './modules/plants';
 import watering from './modules/watering';
 import garden from './modules/garden';
+import sprinkler from './modules/sprinkler';
 
 Vue.use(Vuex);
 
@@ -25,6 +26,11 @@ export default new Vuex.Store({
         const plant = state.player.plants[index];
         plant.check();
 
+        if (state.sprinkler.on) {
+          console.log('auto watering');
+          plant.hydrate();
+        }
+
         if (plant.isDead) {
           dispatch('removePlant', plant);
         }
@@ -39,5 +45,6 @@ export default new Vuex.Store({
     player,
     garden,
     watering,
+    sprinkler,
   },
 });
