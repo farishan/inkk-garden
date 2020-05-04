@@ -1,10 +1,12 @@
 <template>
-  <div class="border relative cursor-pointer p-2 rounded shadow mb-3">
+  <div
+    class="border relative cursor-pointer p-2 rounded shadow mb-3"
+    :class="isActive ? 'shadow border-gray-600' : ''"
+  >
     <div style="height: 50px; width: 50px">
       <div
         v-if="data && data !== null"
         class="w-full h-full"
-        :class="$store.state.watering.active ? 'border-gray-900' : ''"
         :style="{backgroundImage: `url('/images/${data.image}')`}"
         @click="handleClick"
       >
@@ -27,10 +29,24 @@ export default {
   components: {
     // Bar,
   },
+  computed: {
+    isActive() {
+      if (this.$store.state.player.selectedCan !== null) {
+        return this.data.id === this.$store.state.player.selectedCan.id;
+      }
+
+      return false;
+    },
+  },
   methods: {
     handleClick() {
       if (this.$store.state.watering.active) {
-        this.$store.dispatch('deselectWateringCan');
+        if (this.isActive === false) {
+          this.$store.dispatch('deselectWateringCan');
+          this.$store.dispatch('selectWateringCan', this.data);
+        } else {
+          this.$store.dispatch('deselectWateringCan');
+        }
       } else {
         this.$store.dispatch('selectWateringCan', this.data);
       }
