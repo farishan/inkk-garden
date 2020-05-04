@@ -7,6 +7,7 @@ class Plant {
     this.description = options.description;
     this.image = options.image;
     this.imageBud = options.imageBud;
+    this.imageSeed = options.imageSeed;
     this.position = options.position || 0;
     this.boughtAt = options.boughtAt || 0;
     this.price = options.price;

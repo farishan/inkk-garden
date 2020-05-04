@@ -2,7 +2,7 @@
 	{
 		"name": "Flookie",
 		"images": [
-			"seed.png",
+			"seed3.png",
 			"flookie_bud.png",
 			"flookie.png"
 		],
@@ -11,7 +11,7 @@
 	{
 		"name": "Giant Flookie",
 		"images": [
-			"seed.png",
+			"seed3.png",
 			"giant_flookie_bud.png",
 			"giant_flookie.png"
 		],
@@ -20,7 +20,7 @@
 	{
 		"name": "Clovie",
 		"images": [
-			"seed.png",
+			"seed3.png",
 			"clovie_bud.png",
 			"clovie.png"
 		],
@@ -29,7 +29,7 @@
 	{
 		"name": "Plantie",
 		"images": [
-			"seed.png",
+			"seed3.png",
 			"plantie_bud.png",
 			"plantie.png"
 		],
@@ -38,7 +38,7 @@
 	{
 		"name": "Mushkie",
 		"images": [
-			"seed.png",
+			"seed2.png",
 			"mushkie_bud.png",
 			"mushkie.png"
 		],
@@ -47,7 +47,7 @@
 	{
 		"name": "Kukweed",
 		"images": [
-			"seed.png",
+			"seed2.png",
 			"kukweed_bud.png",
 			"kukweed.png"
 		],
@@ -56,7 +56,7 @@
 	{
 		"name": "Wiscoonsie",
 		"images": [
-			"seed.png",
+			"seed2.png",
 			"wiscoonsie_bud.png",
 			"wiscoonsie.png"
 		],
@@ -65,7 +65,7 @@
 	{
 		"name": "Kuekalyptus",
 		"images": [
-			"seed.png",
+			"seed2.png",
 			"kuekalyptus_bud.png",
 			"kuekalyptus.png"
 		],
@@ -110,7 +110,7 @@
 	{
 		"name": "Acookia",
 		"images": [
-			"seed.png",
+			"seed4.png",
 			"acookia_bud.png",
 			"acookia.png"
 		],
@@ -119,7 +119,7 @@
 	{
 		"name": "Katun",
 		"images": [
-			"seed.png",
+			"seed4.png",
 			"katun_bud.png",
 			"katun.png"
 		],
@@ -128,7 +128,7 @@
 	{
 		"name": "Giant Sekuooia",
 		"images": [
-			"seed.png",
+			"seed4.png",
 			"giant_sekuooia_bud.png",
 			"giant_sekuooia.png"
 		],
@@ -137,7 +137,7 @@
 	{
 		"name": "Anggrek",
 		"images": [
-			"seed.png",
+			"seed4.png",
 			"anggrek_bud.png",
 			"anggrek.png"
 		],

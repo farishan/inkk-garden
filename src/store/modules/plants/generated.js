@@ -12,6 +12,7 @@ const generatePlants = () => {
     const np = new Plant({
       id: i + 1,
       name: p.name,
+      imageSeed: p.images[0],
       imageBud: p.images[1],
       image: p.images[2],
       description: p.description,
