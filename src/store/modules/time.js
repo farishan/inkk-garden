@@ -54,15 +54,11 @@ const mutations = {
     state.on = false;
     state.fast = true;
     state.speed /= 4;
-    // setTimeout(() => {
-    // }, 200);
   },
   normal(state) {
     state.on = false;
     state.fast = false;
     state.speed = state.initialSpeed;
-    // setTimeout(() => {
-    // }, 200);
   },
   addPeriod(state) {
     state.periods += 1;
