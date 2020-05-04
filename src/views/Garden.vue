@@ -4,28 +4,30 @@
       <Slots />
     </div>
 
-    <Sprinkler />
-    <Collector />
+    <div class="absolute" style="right: 10px; bottom: 10px;">
+      <!-- Render player's watering cans. -->
+      <div class="flex justify-center items-center flex-col">
+        <div
+          v-if="selectedCan && selectedCan !== null"
+          class="counter"
+          style="width: 30px; height: 30px"
+        >
+          <div>
+            <bar
+              :width="selectedCan.water/selectedCan.capacity"
+              :classes="'bg-blue-400 top-0 left-0'"
+            />
+            {{ $store.state.player.selectedCan.water }}
+          </div>
+        </div>
 
-    <!-- Render player's watering cans. -->
-    <div class="flex justify-center items-center">
-      <div
-        v-if="selectedCan && selectedCan !== null"
-        class="border relative flex items-center justify-center text-blue-700"
-        style="width: 50px; height: 50px"
-      >
-        <div>
-          <bar
-            :width="selectedCan.water/selectedCan.capacity"
-            :classes="'bg-blue-400 top-0 left-0'"
-          />
-          {{ $store.state.player.selectedCan.water }}
+        <div v-for="(can, index) in $store.state.player.wateringCans" :key="index">
+          <WateringCan :data="can"/>
         </div>
       </div>
 
-      <div v-for="(can, index) in $store.state.player.wateringCans" :key="index">
-        <WateringCan :data="can"/>
-      </div>
+      <Sprinkler class="mb-3"/>
+      <Collector />
     </div>
   </div>
 </template>
@@ -56,3 +58,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .counter {
+    @apply border relative flex items-center justify-center;
+    @apply text-blue-700 pt-2 pb-1 rounded shadow mb-3 text-sm;
+  }
+</style>

@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <p>collector:</p>
-    <!-- <pre>
-     {{ $store.state.sprinkler }}
-    </pre> -->
+  <div title="Cookie Imp">
+    <!-- <p>collector:</p>
+    <pre>{{ $store.state.sprinkler }}</pre> -->
     <button
-      class="border"
-      :class="$store.state.collector.on ? 'border-gray-600' : ''"
+      class="border rounded p-2"
+      :class="$store.state.collector.on ? 'border-gray-600 shadow' : ''"
       @click="$store.commit('collector/switch', !$store.state.collector.on)"
     >
       <img

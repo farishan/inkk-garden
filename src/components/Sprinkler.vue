@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <p>sprinkler:</p>
-    <!-- <pre>
-     {{ $store.state.sprinkler }}
-    </pre> -->
+  <div title="Water Sprinkler">
+    <!-- <p>sprinkler:</p>
+    <pre>{{ $store.state.sprinkler }}</pre> -->
     <button
-      class="border"
+      class="border rounded shadow p-2"
       :class="$store.state.sprinkler.on ? 'border-gray-600' : ''"
       @click="$store.commit('sprinkler/switch', !$store.state.sprinkler.on)"
     >
