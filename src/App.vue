@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Time />
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/plants">Plants</router-link> |
@@ -13,8 +14,12 @@
 
 <script>
 import '@/assets/tailwind.css';
+import Time from '@/components/Time.vue';
 
 export default {
+  components: {
+    Time,
+  },
   mounted() {
     console.log(this);
 
