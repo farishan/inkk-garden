@@ -8,6 +8,7 @@ const state = () => ({
   plants: [],
   wateringCans: [],
   selectedCan: null,
+  cookies: 0,
 });
 
 const actions = {
@@ -28,6 +29,9 @@ const mutations = {
   selectWateringCan: waterMutations.selectWateringCan,
   deselectWateringCan: waterMutations.deselectWateringCan,
   useCan: waterMutations.useCan,
+  addCookies: (state, value) => {
+    state.cookies += value;
+  },
 };
 
 export default {
