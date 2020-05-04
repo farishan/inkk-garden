@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Time />
+    <p class="absolute bottom-0">player cookies: {{ $store.state.player.cookies }}</p>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/plants">Plants</router-link> |
