@@ -7,6 +7,7 @@ import watering from './modules/watering';
 import garden from './modules/garden';
 import sprinkler from './modules/sprinkler';
 import collector from './modules/collector';
+import shop from './modules/shop';
 
 Vue.use(Vuex);
 
@@ -46,6 +47,20 @@ export default new Vuex.Store({
 
       dispatch('sync');
     },
+
+    // Mediator between Shop and Player
+    buyPlant({ state, dispatch, commit }, plant) {
+      if (state.player.cookies >= plant.price) {
+        commit('addCookies', plant.price * -1);
+        dispatch('wrapPlant', plant).then((wrappedPlant) => {
+          wrappedPlant.setPosition(state.player.plants.length);
+          commit('addPlant', wrappedPlant);
+          dispatch('sync');
+        });
+      } else {
+        console.log('not enough cookies');
+      }
+    },
   },
   modules: {
     time,
@@ -55,5 +70,6 @@ export default new Vuex.Store({
     watering,
     sprinkler,
     collector,
+    shop,
   },
 });

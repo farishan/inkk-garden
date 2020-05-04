@@ -8,7 +8,7 @@ const state = () => ({
   plants: [],
   wateringCans: [],
   selectedCan: null,
-  cookies: 0,
+  cookies: 1000,
 });
 
 const actions = {

@@ -9,7 +9,7 @@ class Plant {
     this.imageBud = options.imageBud;
     this.imageSeed = options.imageSeed;
     this.position = options.position || 0;
-    this.boughtAt = options.boughtAt || 0;
+    this.boughtAt = options.boughtAt || 0; // in-game time (periods)
     this.price = options.price;
 
     // 0 = seed
@@ -43,6 +43,10 @@ class Plant {
     if (needPhotosyntesis) this.photosynthesis();
     else if (readyToHarvest) this.bloom();
     else this.dehydrate();
+  }
+
+  setPosition(position) {
+    this.position = position;
   }
 
   photosynthesis() {

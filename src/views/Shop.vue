@@ -11,7 +11,7 @@
           <h4 class="text-sm font-bold">{{plant.name}}</h4>
           <img class="mx-auto" :src="`/images/${plant.imageSeed}`">
           <p class="text-xs">{{ plant.price }}</p>
-          <button class="border rounded-lg px-2">buy</button>
+          <button class="border rounded-lg px-2" @click="buyPlant(plant)">buy</button>
           <!-- <pre>
             {{ JSON.stringify(plant, null, 2) }}
           </pre> -->
@@ -62,3 +62,13 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    buyPlant(plant) {
+      this.$store.dispatch('buyPlant', plant);
+    },
+  },
+};
+</script>
