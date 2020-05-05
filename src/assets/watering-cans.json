@@ -13,6 +13,7 @@
     "water": 5,
     "capacity": 5,
     "image": "inked_watering_can.png",
-    "price": 7500
+    "price": 7500,
+    "buyable": true
   }
 ]

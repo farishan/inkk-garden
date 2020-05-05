@@ -2,13 +2,13 @@
   <div id="app" class="antialiased">
     <Time />
     <p class="absolute bottom-0">player cookies: {{ $store.state.player.cookies }}</p>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/plants">Plants</router-link> |
-      <router-link to="/watering-cans">Watering Cans</router-link> |
-      <router-link to="/player">Player</router-link> |
-      <router-link to="/shop">Shop</router-link> |
-      <router-link to="/garden">Garden</router-link>
+    <div class="absolute flex flex-col" style="left: 10px; top: 137px;">
+      <router-link class="nav-item" to="/">Home</router-link>
+      <router-link class="nav-item" to="/garden">Garden</router-link>
+      <router-link class="nav-item" to="/shop">Shop</router-link>
+      <router-link class="nav-item" to="/plants">Plants</router-link>
+      <router-link class="nav-item" to="/watering-cans">W. Cans</router-link>
+      <router-link class="nav-item" to="/player">Player</router-link>
     </div>
     <Alert />
     <router-view/>
@@ -51,16 +51,11 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.nav-item {
+  @apply border border-gray-600 rounded shadow mb-2 px-2 font-bold;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
+.nav-item.router-link-exact-active {
   color: #42b983;
 }
 </style>
