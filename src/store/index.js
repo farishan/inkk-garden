@@ -16,7 +16,9 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     config: {
-      priceCut: 40, // percent
+      priceCut: 40, // %
+      lowestCollectReward: 15, // %
+      highestCollectReward: 20, // %
     },
   },
   mutations: {

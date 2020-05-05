@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-import { ID } from '@/utils';
+import { ID, priceConverter, random } from '@/utils';
 import Plant from '../plants/plant';
 
 export default {
@@ -24,9 +24,18 @@ export default {
     // add plant to garden's slots
     dispatch('sync', null, { root: true });
   },
-  // eslint-disable-next-line no-empty-pattern
-  collect({}, plant) {
+  collect({ commit, rootState }, plant) {
     plant.collect();
+
+    // Calculate collected cookies
+    const percentage = random(true,
+      rootState.config.lowestCollectReward,
+      rootState.config.highestCollectReward);
+    const converted = priceConverter(percentage, plant.price);
+    const cookies = Math.floor(converted);
+    // console.log(`${percentage}% of ${plant.price} is ${cookies}`);
+
+    commit('addCookies', cookies);
   },
   // eslint-disable-next-line no-empty-pattern
   hydrate({ dispatch }, plant) {
