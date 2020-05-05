@@ -1,14 +1,16 @@
 <template>
   <div id="app" class="antialiased">
-    <Time />
-    <p class="absolute bottom-0">player cookies: {{ $store.state.player.cookies }}</p>
-    <div class="absolute flex flex-col" style="left: 10px; top: 137px;">
-      <router-link class="nav-item" to="/">Home</router-link>
-      <router-link class="nav-item" to="/garden">Garden</router-link>
-      <router-link class="nav-item" to="/shop">Shop</router-link>
-      <router-link class="nav-item" to="/plants">Plants</router-link>
-      <router-link class="nav-item" to="/watering-cans">W. Cans</router-link>
-      <router-link class="nav-item" to="/player">Player</router-link>
+    <div class="absolute" style="top: 10px; left: 10px;">
+      <Time class="mb-3" />
+      <div class="flex flex-col">
+        <router-link class="nav-item" to="/">Home</router-link>
+        <router-link class="nav-item" to="/garden">Garden</router-link>
+        <router-link class="nav-item" to="/shop">Shop</router-link>
+        <router-link class="nav-item" to="/plants">Plants</router-link>
+        <router-link class="nav-item" to="/watering-cans">W. Cans</router-link>
+        <router-link class="nav-item" to="/player">Player</router-link>
+      </div>
+      <p class="absolute">player cookies: {{ $store.state.player.cookies }}</p>
     </div>
     <Alert />
     <router-view/>
@@ -43,7 +45,22 @@ export default {
   outline: none !important;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #222;
+}
+
 #app {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  max-height: 600px;
+  overflow: hidden;
+  position: relative;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -56,6 +73,6 @@ export default {
 }
 
 .nav-item.router-link-exact-active {
-  color: #42b983;
+  @apply text-white bg-black shadow-none border-black;
 }
 </style>

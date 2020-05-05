@@ -142,6 +142,6 @@ export default {
   }
 
   .shop-item__button {
-    @apply border border-gray-400 rounded-lg px-2 text-sm;
+    @apply border border-gray-400 rounded-lg px-2 text-sm tracking-wider;
   }
 </style>
