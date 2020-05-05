@@ -13,7 +13,7 @@
       <span v-if="data.stage===1"> Bud</span>
     </span> -->
 
-    <small v-show="data.dry" class="water-alert"><b>need water!</b></small>
+    <p v-show="data.dry" class="water-alert">need<br>water</p>
 
     <span v-show="data.ready">
       <button
@@ -125,15 +125,13 @@ export default {
   }
 
   .water-alert {
-    @apply absolute left-0 w-full text-center text-white;
-    animation: blink 1s ease-in-out;
+    @apply absolute left-0 bottom-0 w-full text-left text-white font-bold tracking-wide;
+    @apply pt-2 pb-1 pl-1 z-10 text-white text-sm leading-3 bg-blue-400;
+
+    animation: blink 2s ease-in-out;
     animation-iteration-count: infinite;
-    background-color: red;
-    color: #fff;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-    padding: .25rem 0;
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
   }
 
   .collect-button {
