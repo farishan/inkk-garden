@@ -28,7 +28,7 @@
             <h4>{{data.name}}</h4>
             <img :src="`/images/${data.image}`">
             <p class="text-xs">{{data.price}}</p>
-            <button class="border rounded-lg px-2">buy</button>
+            <button class="border rounded-lg px-2" @click="buyWateringCan(data)">buy</button>
             <!-- <pre>
               {{ JSON.stringify(data, null, 2) }}
             </pre> -->
@@ -68,6 +68,9 @@ export default {
   methods: {
     buyPlant(plant) {
       this.$store.dispatch('buyPlant', plant);
+    },
+    buyWateringCan(can) {
+      this.$store.dispatch('buyWateringCan', can);
     },
   },
 };

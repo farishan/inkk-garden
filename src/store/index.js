@@ -74,6 +74,19 @@ export default new Vuex.Store({
       // remove plant
       dispatch('removePlant', plant);
     },
+    buyWateringCan({ state, commit, dispatch }, can) {
+      // Check if player already have that can
+      if (state.player.wateringCanIds.indexOf(can.id) === -1) {
+        if (state.player.cookies >= can.price) {
+          commit('addCookies', can.price * -1);
+          dispatch('addWateringCan', can.id);
+        } else {
+          console.log('not enough cookies');
+        }
+      } else {
+        console.log('you already have that');
+      }
+    },
   },
   modules: {
     time,

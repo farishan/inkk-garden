@@ -1,6 +1,7 @@
 export default {
   addWateringCan(state, can) {
     state.wateringCans.push(can);
+    state.wateringCanIds.push(can.id);
   },
   selectWateringCan(state, can) {
     const selectedCan = { ...can };

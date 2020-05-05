@@ -7,8 +7,9 @@ import waterMutations from './waterMutations';
 const state = () => ({
   plants: [],
   wateringCans: [],
+  wateringCanIds: [],
   selectedCan: null,
-  cookies: 1000,
+  cookies: 10000,
 });
 
 const actions = {
