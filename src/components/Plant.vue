@@ -7,17 +7,17 @@
     @mouseover="hover = true"
     @mouseleave="hover = false"
   >
-    <span v-if="!data.ready && !data.dry" class="absolute text-xs top-0 left-0">
+    <!-- <span v-if="!data.ready && !data.dry" class="absolute text-xs top-0 left-0">
       {{data.name}}
       <span v-if="data.stage===0"> Seed</span>
       <span v-if="data.stage===1"> Bud</span>
-    </span>
+    </span> -->
 
     <small v-show="data.dry" class="water-alert"><b>need water!</b></small>
 
     <span v-show="data.ready">
       <button
-        class="collect-btn absolute left-0 bottom-0 z-10 w-full bg-gray-400"
+        class="collect-button"
         @click="collect($event)"
       >
         collect
@@ -134,6 +134,11 @@ export default {
     transform: translateY(-50%);
     z-index: 3;
     padding: .25rem 0;
+  }
+
+  .collect-button {
+    @apply absolute left-0 bottom-0 z-10 w-full;
+    @apply bg-black text-white text-sm font-bold tracking-wider;
   }
 
   @keyframes animate {

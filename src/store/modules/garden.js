@@ -28,6 +28,8 @@ const slots = {
   },
   actions: {
     syncSlots({ state, commit, rootState }) {
+      commit('changeSlots', [...state.initialSlots]);
+
       const { slots } = state;
       const { plants } = rootState.player;
 

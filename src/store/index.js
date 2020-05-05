@@ -23,6 +23,7 @@ export default new Vuex.Store({
   },
   actions: {
     sync({ dispatch }) {
+      console.log('global sync');
       dispatch('syncSlots');
     },
     update({ state, dispatch }) {

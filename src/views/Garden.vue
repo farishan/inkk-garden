@@ -4,7 +4,7 @@
       <Slots />
     </div>
 
-    <div class="absolute" style="right: 10px; bottom: 10px;">
+    <div class="absolute -mb-3" style="right: 10px; bottom: 10px;">
       <!-- Render player's watering cans. -->
       <div class="flex justify-center items-center flex-col">
         <div
@@ -27,7 +27,7 @@
       </div>
 
       <Sprinkler class="mb-3" v-if="$store.state.player.sprinkler"/>
-      <Collector v-if="$store.state.player.collector"/>
+      <Collector class="mb-3" v-if="$store.state.player.collector"/>
     </div>
   </div>
 </template>

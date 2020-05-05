@@ -7,7 +7,12 @@
     @mouseenter="hover = true"
     @mouseleave="hover = false"
   >
-    {{data.name}}<br>
+    <span>
+      {{data.name}}
+      <span v-if="data.stage===0"> Seed</span>
+      <span v-if="data.stage===1"> Bud</span>
+    </span>
+    <!-- {{data.name}}<br> -->
     water: {{data.water}}<br>
     progress: {{data.progress}}<br>
     stage: {{data.stage}}<br>

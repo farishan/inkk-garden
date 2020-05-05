@@ -8,9 +8,7 @@
       <pot class="pot" v-if="slot !== null">
         <plant :data="slot" />
       </pot>
-      <pot class="pot" v-else>
-        null
-      </pot>
+      <pot class="pot" v-else />
     </div>
   </div>
 </template>

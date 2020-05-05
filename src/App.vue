@@ -32,6 +32,9 @@ export default {
 
     // Starting time
     this.$store.dispatch('start');
+
+    // Add initial watering can
+    this.$store.dispatch('addWateringCan', 1);
   },
 };
 </script>
