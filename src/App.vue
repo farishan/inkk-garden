@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="antialiased">
     <Time />
     <p class="absolute bottom-0">player cookies: {{ $store.state.player.cookies }}</p>
     <div id="nav">
@@ -10,6 +10,7 @@
       <router-link to="/shop">Shop</router-link> |
       <router-link to="/garden">Garden</router-link>
     </div>
+    <Alert />
     <router-view/>
   </div>
 </template>
@@ -17,10 +18,12 @@
 <script>
 import '@/assets/tailwind.css';
 import Time from '@/components/Time.vue';
+import Alert from '@/components/Alert.vue';
 
 export default {
   components: {
     Time,
+    Alert,
   },
   mounted() {
     console.log(this);

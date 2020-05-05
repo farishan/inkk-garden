@@ -11,7 +11,7 @@ const actions = {
         dispatch('sync');
       });
     } else {
-      console.log('not enough cookies');
+      dispatch('alert/show', 'not enough cookies.');
     }
   },
   // eslint-disable-next-line no-empty-pattern
@@ -30,36 +30,36 @@ const actions = {
         commit('addCookies', can.price * -1);
         dispatch('addWateringCan', can.id);
       } else {
-        console.log('not enough cookies');
+        dispatch('alert/show', 'not enough cookies.');
       }
     } else {
-      console.log('you already have that');
+      dispatch('alert/show', 'you already have that.');
     }
   },
-  buySprinkler({ state, commit }, price) {
+  buySprinkler({ dispatch, state, commit }, price) {
     // Check if player already bought sprinkler
     if (state.player.sprinkler === null) {
       if (state.player.cookies >= price) {
         commit('addCookies', price * -1);
         commit('addSprinkler');
       } else {
-        console.log('not enough cookies');
+        dispatch('alert/show', 'not enough cookies.');
       }
     } else {
-      console.log('you already have that');
+      dispatch('alert/show', 'you already have that.');
     }
   },
-  buyCollector({ state, commit }, price) {
+  buyCollector({ dispatch, state, commit }, price) {
     // Check if player already bought sprinkler
     if (state.player.collector === null) {
       if (state.player.cookies >= price) {
         commit('addCookies', price * -1);
         commit('addCollector');
       } else {
-        console.log('not enough cookies');
+        dispatch('alert/show', 'not enough cookies.');
       }
     } else {
-      console.log('you already have that');
+      dispatch('alert/show', 'you already have that.');
     }
   },
 };

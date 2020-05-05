@@ -9,6 +9,7 @@ import sprinkler from './modules/sprinkler';
 import collector from './modules/collector';
 import shop from './modules/shop';
 import mediator from './modules/mediator';
+import alert from './modules/alert';
 
 Vue.use(Vuex);
 
@@ -58,6 +59,7 @@ export default new Vuex.Store({
     buyCollector: mediator.shopAndPlayer.buyCollector,
   },
   modules: {
+    alert,
     time,
     plants,
     player,
