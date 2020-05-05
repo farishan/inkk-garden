@@ -45,7 +45,12 @@
             alt="sprinkler"
           >
           <p class="text-xs">10000</p>
-          <button class="border rounded-lg px-2">buy</button>
+          <button
+            class="border rounded-lg px-2"
+            @click="$store.dispatch('buySprinkler', 10000)"
+          >
+            buy
+          </button>
         </div>
       </div>
       <div>

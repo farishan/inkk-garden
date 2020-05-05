@@ -14,4 +14,7 @@ export default {
   useCan(state) {
     state.selectedCan.water -= 1;
   },
+  addSprinkler(state) {
+    state.sprinkler = true;
+  },
 };
