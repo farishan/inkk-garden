@@ -1,5 +1,5 @@
 <template>
-  <div :style="style" class="border relative">
+  <div :style="style" class="rounded-sm shadow border-gray-200 relative">
     <slot />
   </div>
 </template>

@@ -1,6 +1,10 @@
 <template>
-  <div class="flex flex-wrap justify-center w-5/12 mx-auto">
-    <div v-for="(slot, index) in $store.state.garden.slots" :key="index">
+  <div class="flex flex-wrap justify-center -mx-4 pt-4">
+    <div
+      v-for="(slot, index) in $store.state.garden.slots"
+      :key="index"
+      class="px-2 mb-4"
+    >
       <pot class="pot" v-if="slot !== null">
         <plant :data="slot" />
       </pot>

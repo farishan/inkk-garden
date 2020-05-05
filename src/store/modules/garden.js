@@ -1,8 +1,18 @@
 /* eslint-disable no-shadow */
 const slots = {
   state: () => ({
-    initialSlots: [null, null, null, null],
-    slots: [null, null, null, null],
+    initialSlots: [
+      null, null, null, null,
+      null, null, null, null,
+      null, null, null, null,
+      null, null, null, null,
+    ],
+    slots: [
+      null, null, null, null,
+      null, null, null, null,
+      null, null, null, null,
+      null, null, null, null,
+    ],
     isEmpty: true,
   }),
   mutations: {
