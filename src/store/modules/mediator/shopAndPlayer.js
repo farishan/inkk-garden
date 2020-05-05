@@ -49,6 +49,19 @@ const actions = {
       console.log('you already have that');
     }
   },
+  buyCollector({ state, commit }, price) {
+    // Check if player already bought sprinkler
+    if (state.player.collector === null) {
+      if (state.player.cookies >= price) {
+        commit('addCookies', price * -1);
+        commit('addCollector');
+      } else {
+        console.log('not enough cookies');
+      }
+    } else {
+      console.log('you already have that');
+    }
+  },
 };
 
 export default actions;

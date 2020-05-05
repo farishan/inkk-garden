@@ -10,6 +10,7 @@ const state = () => ({
   wateringCanIds: [],
   selectedCan: null,
   sprinkler: null,
+  collector: null,
   cookies: 10000,
 });
 
@@ -32,6 +33,9 @@ const mutations = {
   deselectWateringCan: waterMutations.deselectWateringCan,
   useCan: waterMutations.useCan,
   addSprinkler: waterMutations.addSprinkler,
+  addCollector: (state) => {
+    state.collector = true;
+  },
   addCookies: (state, value) => {
     state.cookies += value;
   },

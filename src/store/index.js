@@ -55,6 +55,7 @@ export default new Vuex.Store({
     sellPlant: mediator.shopAndPlayer.sellPlant,
     buyWateringCan: mediator.shopAndPlayer.buyWateringCan,
     buySprinkler: mediator.shopAndPlayer.buySprinkler,
+    buyCollector: mediator.shopAndPlayer.buyCollector,
   },
   modules: {
     time,

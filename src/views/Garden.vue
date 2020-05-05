@@ -27,7 +27,7 @@
       </div>
 
       <Sprinkler class="mb-3" v-if="$store.state.player.sprinkler"/>
-      <Collector />
+      <Collector v-if="$store.state.player.collector"/>
     </div>
   </div>
 </template>
