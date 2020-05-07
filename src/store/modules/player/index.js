@@ -64,6 +64,8 @@ const actions = {
       cookies,
       wateringCanIds,
       plants,
+      collector,
+      sprinkler,
     } = data;
 
     // Set cookies
@@ -79,6 +81,14 @@ const actions = {
     if (plants) {
       commit('resetPlants');
       dispatch('setPlants', plants);
+    }
+
+    if (collector) {
+      commit('addCollector');
+    }
+
+    if (sprinkler) {
+      commit('addSprinkler');
     }
   },
 };

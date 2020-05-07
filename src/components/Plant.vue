@@ -72,7 +72,9 @@ export default {
     image() {
       let image = 'seed.png';
 
-      if (this.data.stage === 1) {
+      if (this.data.stage === 0) {
+        image = this.data.imageSeed;
+      } else if (this.data.stage === 1) {
         image = this.data.imageBud;
       } else if (this.data.stage === 2) {
         image = this.data.image;
