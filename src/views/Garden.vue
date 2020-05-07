@@ -1,5 +1,8 @@
 <template>
-  <div class="h-screen flex items-center justify-center" style="padding-top: 10px">
+  <div
+    class="h-screen flex items-center justify-center"
+    style="padding-top: 10px; max-height: 600px;"
+  >
     <div class="w-5/12 mx-auto">
       <Slots />
     </div>
