@@ -1,4 +1,5 @@
 /* eslint-disable no-shadow */
+import config from '@/config';
 import plantActions from './plantActions';
 import plantMutations from './plantMutations';
 import waterActions from './waterActions';
@@ -11,7 +12,7 @@ const state = () => ({
   selectedCan: null,
   sprinkler: null,
   collector: null,
-  cookies: 10000,
+  cookies: config.player.initialCookies,
 });
 
 const actions = {

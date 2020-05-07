@@ -5,6 +5,10 @@
   >
     <div class="w-5/12 mx-auto">
       <Slots />
+      <p v-if="$store.state.player.plants.length === 0">
+        No plants.
+        <router-link class="text-gray-600 underline" to="/shop">buy some</router-link>
+      </p>
     </div>
 
     <div class="absolute -mb-3" style="right: 10px; bottom: 10px;">

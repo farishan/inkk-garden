@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import config from '@/config';
 import time from './modules/time.store';
 import player from './modules/player';
 import plants from './modules/plants';
@@ -15,11 +16,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    config: {
-      priceCut: 40, // %
-      lowestCollectReward: 15, // %
-      highestCollectReward: 20, // %
-    },
+    config: config.global,
   },
   mutations: {
   },
