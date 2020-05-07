@@ -35,7 +35,10 @@
           </div>
           <div class="text-center w-full p-1" v-if="$store.state.shop.isNextTierAvailable">
             <button class="unlock-button" @click="unlockNextTier">
-              Unlock more for {{ nextTierPrice }} C
+              <span class="mr-1">
+                Unlock more for {{ nextTierPrice }}
+              </span>
+              <Cookie />
             </button>
           </div>
         </div>
@@ -45,7 +48,10 @@
       <div class="border border-gray-600 rounded shadow p-2">
         <div class="text-center w-full" v-if="$store.state.shop.toolsLocked">
           <button class="unlock-button" @click="unlockTools">
-            Unlock for {{ $store.state.shop.unlockToolsPrice }} C
+            <span class="mr-1">
+              Unlock tools for {{ $store.state.shop.unlockToolsPrice }}
+            </span>
+            <Cookie />
           </button>
         </div>
         <div
@@ -198,6 +204,7 @@ export default {
   }
 
   .unlock-button {
-    @apply border rounded shadow border-gray-600 w-full py-2 block;
+    @apply border rounded shadow border-gray-600 w-full py-3 block;
+    @apply flex items-center justify-center leading-none text-sm;
   }
 </style>

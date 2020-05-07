@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-wrap w-2/3 mx-auto">
     <button class="border px-2" @click="addPlant">add plant</button>
     <button class="border px-2" @click="addWateringCan">add watering can</button>
     <button class="border px-2" @click="addCookies(10)">add 10 cookies</button>
