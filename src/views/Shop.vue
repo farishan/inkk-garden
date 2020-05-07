@@ -43,7 +43,15 @@
 
       <!-- OTHERS -->
       <div class="border border-gray-600 rounded shadow p-2">
-        <div class="flex flex-wrap -mx-1 overflow-y-auto">
+        <div class="text-center w-full" v-if="$store.state.shop.toolsLocked">
+          <button class="unlock-button" @click="unlockTools">
+            Unlock for {{ $store.state.shop.unlockToolsPrice }} C
+          </button>
+        </div>
+        <div
+          class="flex flex-wrap -mx-1 overflow-y-auto"
+          v-if="!$store.state.shop.toolsLocked"
+        >
           <!-- watering cans -->
           <div class="w-1/3 px-1 flex">
             <div
@@ -145,6 +153,9 @@ export default {
     },
     unlockNextTier() {
       this.$store.dispatch('unlockNextTier');
+    },
+    unlockTools() {
+      this.$store.dispatch('unlockTools');
     },
   },
 };

@@ -88,6 +88,16 @@ const actions = {
         dispatch('alert/show', 'not enough cookies.');
       });
   },
+  unlockTools({ state, commit, dispatch }) {
+    dispatch('player/checkCookies', state.shop.unlockToolsPrice)
+      .then(() => {
+        commit('player/addCookies', state.shop.unlockToolsPrice * -1);
+        commit('shop/unlockTools');
+      })
+      .catch(() => {
+        dispatch('alert/show', 'not enough cookies.');
+      });
+  },
 };
 
 export default actions;

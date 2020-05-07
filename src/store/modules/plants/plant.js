@@ -55,7 +55,7 @@ class Plant {
     function setToReady() {
       if (!self.ready) {
         self.ready = true;
-        console.log(`${self.id} ready to collect.`);
+        // console.log(`${self.id} ready to collect.`);
       }
     }
 

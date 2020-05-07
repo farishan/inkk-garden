@@ -42,13 +42,11 @@ export default new Vuex.Store({
 
         // sprinkler
         if (state.sprinkler.on) {
-          console.log('auto watering');
           plant.hydrate();
         }
 
         // collector
         if (state.collector.on && plant.ready) {
-          console.log('auto collecting');
           dispatch('player/collect', plant);
         }
 
@@ -69,6 +67,7 @@ export default new Vuex.Store({
     buySprinkler: mediator.shopAndPlayer.buySprinkler,
     buyCollector: mediator.shopAndPlayer.buyCollector,
     unlockNextTier: mediator.shopAndPlayer.unlockNextTier,
+    unlockTools: mediator.shopAndPlayer.unlockTools,
   },
   modules: {
     alert,

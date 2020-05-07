@@ -30,6 +30,8 @@ const shopModule = {
     activeTierId: null,
     currentTier: null,
     plants: [],
+    toolsLocked: true,
+    unlockToolsPrice: 5000,
   }),
   getters: {
     plants(state) {
@@ -77,6 +79,9 @@ const shopModule = {
     },
     setPlants(state, plants) {
       state.plants = plants;
+    },
+    unlockTools(state) {
+      state.toolsLocked = false;
     },
   },
 };
