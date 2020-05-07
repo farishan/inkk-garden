@@ -159,7 +159,7 @@ export default {
   }
 
   .shop-item__price {
-    @apply text-xs mr-1;
+    @apply text-xs mr-1 leading-none;
   }
 
   .shop-item__button {
