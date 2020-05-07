@@ -1,11 +1,29 @@
 <template>
-  <div class="p-2">
-    statistics
-
-    <pre>
-    {{JSON.stringify(statistics, null, 2)}}
-    </pre>
-    total time played: {{totalTimePlayed}}
+  <div
+    class="w-2/3 mx-auto p-2 border border-gray-600 text-left rounded shadow text-sm"
+    style="margin-top: 10px"
+  >
+    <table>
+      <tbody>
+        <tr>
+          <td>Total Time Played</td>
+          <td>:</td>
+          <td>{{ totalTimePlayed }}</td>
+        </tr>
+        <tr v-for="(k, index) in Object.keys(statistics)" :key="index">
+          <td>
+            {{ k | normalizeCamelCase }}
+          </td>
+          <td>:</td>
+          <td>
+            <span v-if="k === 'startedAt' || k === 'lastSavedAt'">
+              {{ statistics[k] | dateFormat }}
+            </span>
+            <span v-else>{{ statistics[k] }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -48,6 +66,21 @@ export default {
   },
   destroyed() {
     clearInterval(this.interval);
+  },
+  filters: {
+    normalizeCamelCase(val) {
+      return val
+        // insert a space before all caps
+        .replace(/([A-Z])/g, ' $1')
+        // uppercase the first character
+        .replace(/^./, (str) => str.toUpperCase());
+    },
+    dateFormat(val) {
+      if (val && val !== '') {
+        return new Date(val).toLocaleString();
+      }
+      return '-';
+    },
   },
 };
 </script>
