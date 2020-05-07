@@ -110,11 +110,11 @@ export default {
       // selectingAction = false; player.manual_collect++
       e.preventDefault();
       e.stopPropagation();
-      this.$store.dispatch('collect', this.data);
+      this.$store.dispatch('player/collect', this.data);
     },
     handleClick() {
       if (this.$store.state.watering.active) {
-        this.$store.dispatch('hydrate', this.data);
+        this.$store.dispatch('player/hydrate', this.data);
       }
     },
     startDrag(e) {

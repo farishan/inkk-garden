@@ -4,11 +4,11 @@ export default {
     commit('addWateringCan', can);
   },
   selectWateringCan({ dispatch, commit }, can) {
-    dispatch('toggleWatering');
+    dispatch('toggleWatering', null, { root: true });
     commit('selectWateringCan', can);
   },
   deselectWateringCan({ dispatch, commit }) {
-    dispatch('toggleWatering');
+    dispatch('toggleWatering', null, { root: true });
     commit('deselectWateringCan');
   },
   useCan({ state, dispatch, commit }) {

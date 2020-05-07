@@ -12,6 +12,7 @@ const actions = {
           dispatch('wrapPlant', plant).then((wrappedPlant) => {
             wrappedPlant.setPosition(slotIndex);
             commit('player/addPlant', wrappedPlant);
+            dispatch('alert/show', `${wrappedPlant.name} seed added to garden.`);
             dispatch('sync');
           });
         } else {
@@ -37,6 +38,7 @@ const actions = {
       if (state.player.cookies >= can.price) {
         commit('player/addCookies', can.price * -1);
         dispatch('player/addWateringCan', can.id);
+        dispatch('alert/show', `You bought ${can.name}!`);
       } else {
         dispatch('alert/show', 'not enough cookies.');
       }
@@ -50,6 +52,7 @@ const actions = {
       if (state.player.cookies >= price) {
         commit('player/addCookies', price * -1);
         commit('player/addSprinkler');
+        dispatch('alert/show', 'You bought Sprinkkler!');
       } else {
         dispatch('alert/show', 'not enough cookies.');
       }
@@ -63,6 +66,7 @@ const actions = {
       if (state.player.cookies >= price) {
         commit('player/addCookies', price * -1);
         commit('player/addCollector');
+        dispatch('alert/show', "You bought Ku'Chippi!");
       } else {
         dispatch('alert/show', 'not enough cookies.');
       }

@@ -7,7 +7,7 @@ import watering from './modules/watering';
 import garden from './modules/garden';
 import sprinkler from './modules/sprinkler';
 import collector from './modules/collector';
-import shop from './modules/shop';
+import shop from './modules/shop.store';
 import mediator from './modules/mediator';
 import alert from './modules/alert';
 

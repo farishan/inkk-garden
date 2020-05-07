@@ -42,13 +42,13 @@ export default {
     handleClick() {
       if (this.$store.state.watering.active) {
         if (this.isActive === false) {
-          this.$store.dispatch('deselectWateringCan');
-          this.$store.dispatch('selectWateringCan', this.data);
+          this.$store.dispatch('player/deselectWateringCan');
+          this.$store.dispatch('player/selectWateringCan', this.data);
         } else {
-          this.$store.dispatch('deselectWateringCan');
+          this.$store.dispatch('player/deselectWateringCan');
         }
       } else {
-        this.$store.dispatch('selectWateringCan', this.data);
+        this.$store.dispatch('player/selectWateringCan', this.data);
       }
     },
   },
