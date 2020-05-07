@@ -46,7 +46,7 @@
       v-show="data.dry"
     />
 
-    <tooltip :data="data" :show="hover" />
+    <tooltip :data="data" v-show="showTooltip" />
   </div>
 </template>
 
@@ -65,6 +65,7 @@ export default {
   data() {
     return {
       hover: false,
+      showTooltip: false,
     };
   },
   computed: {
@@ -123,6 +124,21 @@ export default {
       e.dataTransfer.effectAllowed = 'move';
       e.dataTransfer.setData('itemID', this.data.id);
       e.dataTransfer.setData('itemPosition', this.data.position);
+    },
+  },
+  watch: {
+    hover(val) {
+      setTimeout(() => {
+        if (this.hover) {
+          this.showTooltip = true;
+        } else {
+          this.showTooltip = false;
+        }
+      }, 1000);
+
+      if (val === false) {
+        this.showTooltip = false;
+      }
     },
   },
 };
