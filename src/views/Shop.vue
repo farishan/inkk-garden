@@ -15,7 +15,10 @@
             <div class="shop-item">
               <h4 class="shop-item__name">{{plant.name}}</h4>
               <img draggable="false" class="shop-item__image" :src="`/images/${plant.imageSeed}`">
-              <p class="shop-item__price">{{ plant.price }} C</p>
+              <div class="shop-item__price-wrapper">
+                <p class="shop-item__price">{{ plant.price }}</p>
+                <Cookie />
+              </div>
               <button
                 class="shop-item__button"
                 @click="buyPlant(plant)"
@@ -43,7 +46,10 @@
               <div class="shop-item">
                 <h4 class="shop-item__name">{{data.name}}</h4>
                 <img class="shop-item__image" :src="`/images/${data.image}`">
-                <p class="shop-item__price">{{data.price}} C</p>
+                <div class="shop-item__price-wrapper">
+                  <p class="shop-item__price">{{ data.price }}</p>
+                  <Cookie />
+                </div>
                 <button
                   class="shop-item__button"
                   @click="buyWateringCan(data)"
@@ -66,7 +72,10 @@
                 alt="sprinkler"
                 class="shop-item__image"
               >
-              <p class="shop-item__price">10000 C</p>
+              <div class="shop-item__price-wrapper">
+                <p class="shop-item__price">10000</p>
+                <Cookie />
+              </div>
               <button
                 class="shop-item__button"
                 @click="$store.dispatch('buySprinkler', 10000)"
@@ -85,7 +94,10 @@
                 alt="collector"
                 class="shop-item__image"
               >
-              <p class="shop-item__price">10000 C</p>
+              <div class="shop-item__price-wrapper">
+                <p class="shop-item__price">10000</p>
+                <Cookie />
+              </div>
               <button
                 class="shop-item__button"
                 @click="$store.dispatch('buyCollector', 10000)"
@@ -101,7 +113,12 @@
 </template>
 
 <script>
+import Cookie from '@/components/icons/Cookie.vue';
+
 export default {
+  components: {
+    Cookie,
+  },
   methods: {
     buyPlant(plant) {
       this.$store.dispatch('buyPlant', plant);
@@ -130,15 +147,19 @@ export default {
   }
 
   .shop-item__name {
-    @apply text-sm font-bold mb-2;
+    @apply text-sm font-bold mb-3;
   }
 
   .shop-item__image {
-    @apply mx-auto mb-2;
+    @apply mx-auto mb-3;
+  }
+
+  .shop-item__price-wrapper {
+    @apply flex items-center justify-center mb-2;
   }
 
   .shop-item__price {
-    @apply text-xs mb-2;
+    @apply text-xs mr-1;
   }
 
   .shop-item__button {
