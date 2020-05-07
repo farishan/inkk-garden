@@ -10,11 +10,11 @@
         <Cookie />
       </div>
       <div class="flex flex-col">
-        <router-link class="nav-item" to="/">Home</router-link>
+        <!-- <router-link class="nav-item" to="/">Home</router-link> -->
         <router-link class="nav-item" to="/garden">Garden</router-link>
         <router-link class="nav-item" to="/shop">Shop</router-link>
-        <router-link class="nav-item" to="/plants">Plants</router-link>
-        <router-link class="nav-item" to="/watering-cans">W. Cans</router-link>
+        <!-- <router-link class="nav-item" to="/plants">Plants</router-link> -->
+        <!-- <router-link class="nav-item" to="/watering-cans">W. Cans</router-link> -->
         <router-link class="nav-item" to="/player">Player</router-link>
       </div>
     </div>

@@ -13,6 +13,7 @@ export default {
   },
   useCan(state) {
     state.selectedCan.water -= 1;
+    state.cookies -= 2;
   },
   addSprinkler(state) {
     state.sprinkler = true;
