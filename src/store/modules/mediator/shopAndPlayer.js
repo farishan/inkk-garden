@@ -25,7 +25,6 @@ const actions = {
   },
   // eslint-disable-next-line no-empty-pattern
   sellPlant({ state, dispatch, commit }, plant) {
-    console.log('sell plant', plant);
     // get converted price
     const cookiesToAdd = priceConverter(100 - state.config.priceCut, plant.price);
     commit('player/addCookies', cookiesToAdd);

@@ -59,7 +59,6 @@ const actions = {
     }
   }),
   setDataToLoad({ commit, dispatch }, data) {
-    console.log('player data to load', data);
     const {
       cookies,
       wateringCanIds,

@@ -79,7 +79,6 @@ export default new Vuex.Store({
       });
     },
     setDataToLoad({ dispatch }, data) {
-      console.log(data);
       dispatch('shop/setDataToLoad', data.shop);
       dispatch('player/setDataToLoad', data.player);
       dispatch('time/setDataToLoad', data.time);
