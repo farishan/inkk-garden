@@ -6,6 +6,7 @@ import Player from '../views/Player.vue';
 import Garden from '../views/Garden.vue';
 import Shop from '../views/Shop.vue';
 import Settings from '../views/Settings.vue';
+import Statistics from '../views/Statistics.vue';
 import WateringCans from '../views/WateringCans.vue';
 
 Vue.use(VueRouter);
@@ -45,6 +46,11 @@ const routes = [
     path: '/settings',
     name: 'settings',
     component: Settings,
+  },
+  {
+    path: '/statistics',
+    name: 'statistics',
+    component: Statistics,
   },
   // {
   //   path: '/about',

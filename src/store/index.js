@@ -59,8 +59,7 @@ export default new Vuex.Store({
 
       dispatch('sync');
     },
-    // eslint-disable-next-line no-unused-vars
-    changePosition({ state, dispatch }, data) {
+    changePosition({ dispatch }, data) {
       dispatch('garden/changePosition', data);
     },
     buyPlant: mediator.shopAndPlayer.buyPlant,

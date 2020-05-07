@@ -14,6 +14,7 @@
         <!-- <router-link class="nav-item" to="/watering-cans">W. Cans</router-link> -->
         <router-link class="nav-item" to="/player">Player</router-link>
         <router-link class="nav-item" to="/settings">Settings</router-link>
+        <router-link class="nav-item" to="/statistics">Statistics</router-link>
       </div>
     </div>
     <Alert />
