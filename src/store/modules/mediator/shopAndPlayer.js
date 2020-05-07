@@ -13,6 +13,7 @@ const actions = {
             wrappedPlant.setPosition(slotIndex);
             commit('player/addPlant', wrappedPlant);
             dispatch('alert/show', `${wrappedPlant.name} seed added to garden.`);
+            dispatch('statistics/addPlant', wrappedPlant);
             dispatch('sync');
           });
         } else {

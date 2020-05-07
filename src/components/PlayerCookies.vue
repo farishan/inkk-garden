@@ -42,6 +42,13 @@ export default {
     cookies(after, before) {
       clearTimeout(this.timeout);
       const diff = before - after;
+
+      if (after > before) {
+        // add cookies to statistics
+        const currentTotalCookies = this.$store.state.statistics.totalCookies;
+        this.$store.commit('statistics/setTotalCookies', currentTotalCookies + after);
+      }
+
       this.diff = diff * -1;
 
       this.timeout = setTimeout(() => {

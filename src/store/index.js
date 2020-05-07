@@ -11,6 +11,7 @@ import collector from './modules/collector';
 import shop from './modules/shop.store';
 import mediator from './modules/mediator';
 import alert from './modules/alert';
+import statistics from './modules/statistics';
 
 Vue.use(Vuex);
 
@@ -21,9 +22,10 @@ export default new Vuex.Store({
   mutations: {
   },
   actions: {
-    init({ dispatch }) {
+    init({ dispatch, commit }) {
       // Starting time
       dispatch('time/start');
+      commit('statistics/setStartedAt', new Date().toISOString());
 
       // Add initial watering can
       dispatch('player/addWateringCan', 1);
@@ -32,7 +34,7 @@ export default new Vuex.Store({
     sync({ dispatch }) {
       dispatch('garden/syncSlots');
     },
-    update({ state, dispatch }) {
+    update({ state, dispatch, commit }) {
       // Day changed. Update the state
 
       // Plants photosynthesis
@@ -54,6 +56,7 @@ export default new Vuex.Store({
 
         if (plant.isDead) {
           dispatch('player/removePlant', plant);
+          commit('statistics/addDeadPlant');
         }
       }
 
@@ -75,13 +78,15 @@ export default new Vuex.Store({
           shop: getters['shop/dataToSave'],
           player: getters['player/dataToSave'],
           time: getters['time/dataToSave'],
+          statistics: getters['statistics/dataToSave'],
         });
       });
     },
-    setDataToLoad({ dispatch }, data) {
+    setDataToLoad({ dispatch, commit }, data) {
       dispatch('shop/setDataToLoad', data.shop);
       dispatch('player/setDataToLoad', data.player);
       dispatch('time/setDataToLoad', data.time);
+      commit('statistics/setDataToLoad', data.statistics);
     },
   },
   modules: {
@@ -94,5 +99,6 @@ export default new Vuex.Store({
     sprinkler,
     collector,
     shop,
+    statistics,
   },
 });

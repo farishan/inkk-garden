@@ -117,6 +117,7 @@ export default {
     },
     handleClick() {
       if (this.$store.state.watering.active) {
+        this.$store.commit('statistics/addManualWatering');
         this.$store.dispatch('player/hydrate', this.data);
       }
     },

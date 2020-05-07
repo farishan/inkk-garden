@@ -26,8 +26,8 @@ class Plant {
     this.water = options.waterCapacity;
     this.waterCapacity = options.waterCapacity;
     this.dry = options.dry || false;
-    this.health = options.health || 21;
-    this.defaultHealth = options.defaultHealth || 21;
+    this.health = options.health || 17;
+    this.defaultHealth = options.defaultHealth || 17;
     this.isDead = false;
   }
 

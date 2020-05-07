@@ -7,6 +7,6 @@ export default {
     autoCollectingPrice: 10,
   },
   player: {
-    initialCookies: 500,
+    initialCookies: 750,
   },
 };

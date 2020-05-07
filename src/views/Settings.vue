@@ -45,6 +45,8 @@ export default {
   methods: {
     save() {
       this.$store.dispatch('getDataToSave').then((data) => {
+        // !important: commit set last saved at must be before saloimex.save
+        this.$store.commit('statistics/setLastSavedAt', new Date().toISOString());
         saloimex.save(data);
         this.$store.dispatch('alert/show', 'Game saved.');
       });
@@ -63,6 +65,7 @@ export default {
     },
     exportData() {
       this.$store.dispatch('getDataToSave').then((data) => {
+        this.$store.commit('statistics/setLastSavedAt', new Date().toISOString());
         this.data = saloimex.export(data);
         this.$store.dispatch('alert/show', 'Data exported.');
       });
