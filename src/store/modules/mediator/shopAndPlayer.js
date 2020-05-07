@@ -9,7 +9,7 @@ const actions = {
       .then((slotIndex) => {
         if (slotIndex || slotIndex === 0) {
           commit('player/addCookies', plant.price * -1);
-          dispatch('wrapPlant', plant).then((wrappedPlant) => {
+          dispatch('shop/wrapPlant', plant).then((wrappedPlant) => {
             wrappedPlant.setPosition(slotIndex);
             commit('player/addPlant', wrappedPlant);
             dispatch('alert/show', `${wrappedPlant.name} seed added to garden.`);
@@ -73,6 +73,20 @@ const actions = {
     } else {
       dispatch('alert/show', 'you already have that.');
     }
+  },
+  unlockNextTier({ dispatch, commit, getters }) {
+    // get next tier
+    const nextTier = getters['shop/nextTier'];
+    const nextTierPrice = nextTier.price;
+
+    dispatch('player/checkCookies', nextTierPrice)
+      .then(() => {
+        commit('player/addCookies', nextTierPrice * -1);
+        dispatch('shop/upgradeTier');
+      })
+      .catch(() => {
+        dispatch('alert/show', 'not enough cookies.');
+      });
   },
 };
 

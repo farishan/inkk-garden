@@ -2,13 +2,16 @@
   <div>
     <div class="w-2/3 mx-auto" style="padding-top: 10px">
       <!-- PLANTS -->
-      <div class="border border-gray-600 rounded shadow p-2 mb-3">
+      <div
+        class="border border-gray-600 rounded shadow p-2 mb-3"
+        v-if="$store.state.shop.activeTierId !== null"
+      >
         <div
           class="shop-items"
           style="max-height: 370px;"
         >
           <div
-            v-for="(plant, index) in $store.state.plants.data"
+            v-for="(plant, index) in $store.getters['shop/plants']"
             :key="index"
             class="w-1/4 px-1 mb-2"
           >
@@ -29,6 +32,11 @@
                 {{ JSON.stringify(plant, null, 2) }}
               </pre> -->
             </div>
+          </div>
+          <div class="text-center w-full p-1" v-if="$store.state.shop.isNextTierAvailable">
+            <button class="unlock-button" @click="unlockNextTier">
+              Unlock more for {{ nextTierPrice }} C
+            </button>
           </div>
         </div>
       </div>
@@ -119,12 +127,24 @@ export default {
   components: {
     Cookie,
   },
+  computed: {
+    nextTierPrice() {
+      const nextTier = this.$store.getters['shop/nextTier'];
+      if (nextTier) {
+        return nextTier.price;
+      }
+      return 0;
+    },
+  },
   methods: {
     buyPlant(plant) {
       this.$store.dispatch('buyPlant', plant);
     },
     buyWateringCan(can) {
       this.$store.dispatch('buyWateringCan', can);
+    },
+    unlockNextTier() {
+      this.$store.dispatch('unlockNextTier');
     },
   },
 };
@@ -164,5 +184,9 @@ export default {
 
   .shop-item__button {
     @apply border border-gray-400 rounded-lg px-2 text-sm tracking-wider;
+  }
+
+  .unlock-button {
+    @apply border rounded shadow border-gray-600 w-full py-2 block;
   }
 </style>

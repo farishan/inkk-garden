@@ -30,6 +30,7 @@ export default new Vuex.Store({
 
       // Add initial watering can
       dispatch('player/addWateringCan', 1);
+      dispatch('shop/init');
     },
     sync({ dispatch }) {
       dispatch('garden/syncSlots');
@@ -51,11 +52,11 @@ export default new Vuex.Store({
         // collector
         if (state.collector.on && plant.ready) {
           console.log('auto collecting');
-          dispatch('collect', plant);
+          dispatch('player/collect', plant);
         }
 
         if (plant.isDead) {
-          dispatch('removePlant', plant);
+          dispatch('player/removePlant', plant);
         }
       }
 
@@ -70,6 +71,7 @@ export default new Vuex.Store({
     buyWateringCan: mediator.shopAndPlayer.buyWateringCan,
     buySprinkler: mediator.shopAndPlayer.buySprinkler,
     buyCollector: mediator.shopAndPlayer.buyCollector,
+    unlockNextTier: mediator.shopAndPlayer.unlockNextTier,
   },
   modules: {
     alert,
