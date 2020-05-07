@@ -5,10 +5,10 @@
       :key="index"
       class="px-2 mb-4"
     >
-      <pot class="pot" v-if="slot !== null">
+      <pot :index="index" class="pot" v-if="slot !== null">
         <plant :data="slot" />
       </pot>
-      <pot class="pot" v-else />
+      <pot :index="index" class="pot" v-else />
     </div>
   </div>
 </template>

@@ -25,7 +25,7 @@ export default new Vuex.Store({
   },
   actions: {
     sync({ dispatch }) {
-      dispatch('syncSlots');
+      dispatch('garden/syncSlots');
     },
     update({ state, dispatch }) {
       // Day changed. Update the state
@@ -53,6 +53,10 @@ export default new Vuex.Store({
       }
 
       dispatch('sync');
+    },
+    // eslint-disable-next-line no-unused-vars
+    changePosition({ state, dispatch }, data) {
+      dispatch('garden/changePosition', data);
     },
     buyPlant: mediator.shopAndPlayer.buyPlant,
     sellPlant: mediator.shopAndPlayer.sellPlant,

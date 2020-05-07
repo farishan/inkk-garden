@@ -1,5 +1,6 @@
 /* eslint-disable no-shadow */
-const slots = {
+const gardenModule = {
+  namespaced: true,
   state: () => ({
     initialSlots: [
       null, null, null, null,
@@ -45,7 +46,19 @@ const slots = {
         commit('changeSlots', [...state.initialSlots]);
       }
     },
+    changePosition({ state, dispatch }, data) {
+      const plant1 = state.slots[data.from];
+      const plant2 = state.slots[data.to];
+
+      plant1.position = data.to;
+
+      if (plant2 !== null) {
+        plant2.position = data.from;
+      }
+
+      dispatch('syncSlots');
+    },
   },
 };
 
-export default slots;
+export default gardenModule;

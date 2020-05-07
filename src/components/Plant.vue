@@ -6,6 +6,8 @@
     @click="handleClick"
     @mouseover="hover = true"
     @mouseleave="hover = false"
+    draggable
+    @dragstart="startDrag"
   >
     <!-- <span v-if="!data.ready && !data.dry" class="absolute text-xs top-0 left-0">
       {{data.name}}
@@ -114,6 +116,13 @@ export default {
       if (this.$store.state.watering.active) {
         this.$store.dispatch('hydrate', this.data);
       }
+    },
+    startDrag(e) {
+      this.hover = false;
+      e.dataTransfer.dropEffect = 'move';
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('itemID', this.data.id);
+      e.dataTransfer.setData('itemPosition', this.data.position);
     },
   },
 };
