@@ -5,10 +5,7 @@
       style="top: 10px; left: 10px; max-width: 112px;"
     >
       <Time class="mb-3" />
-      <div :class="classes">
-        <p class="mr-1 leading-none align-middle text-sm">{{ $store.state.player.cookies }}</p>
-        <Cookie />
-      </div>
+      <PlayerCookies />
       <div class="flex flex-col">
         <!-- <router-link class="nav-item" to="/">Home</router-link> -->
         <router-link class="nav-item" to="/garden">Garden</router-link>
@@ -27,13 +24,13 @@
 import '@/assets/tailwind.css';
 import Time from '@/components/Time.vue';
 import Alert from '@/components/Alert.vue';
-import Cookie from '@/components/icons/Cookie.vue';
+import PlayerCookies from '@/components/PlayerCookies.vue';
 
 export default {
   components: {
     Time,
     Alert,
-    Cookie,
+    PlayerCookies,
   },
   data() {
     return {

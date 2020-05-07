@@ -42,6 +42,7 @@ export default new Vuex.Store({
 
         // sprinkler
         if (state.sprinkler.on) {
+          state.player.cookies -= 2;
           plant.hydrate();
         }
 
