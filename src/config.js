@@ -3,6 +3,8 @@ export default {
     priceCut: 40, // %
     lowestCollectReward: 15, // %
     highestCollectReward: 20, // %
+    autoWateringPrice: 2,
+    autoCollectingPrice: 10,
   },
   player: {
     initialCookies: 500,

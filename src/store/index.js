@@ -42,12 +42,13 @@ export default new Vuex.Store({
 
         // sprinkler
         if (state.sprinkler.on) {
-          state.player.cookies -= 2;
+          state.player.cookies -= state.config.autoWateringPrice;
           plant.hydrate();
         }
 
         // collector
         if (state.collector.on && plant.ready) {
+          state.player.cookies -= state.config.autoCollectingPrice;
           dispatch('player/collect', plant);
         }
 
