@@ -16,14 +16,14 @@
 export default {
   methods: {
     addPlant() {
-      this.$store.dispatch('addPlant', 1);
+      this.$store.dispatch('player/addPlant', 1);
     },
     addWateringCan() {
-      this.$store.dispatch('addWateringCan', 1);
-      this.$store.dispatch('addWateringCan', 2);
+      this.$store.dispatch('player/addWateringCan', 1);
+      this.$store.dispatch('player/addWateringCan', 2);
     },
     addCookies(amount) {
-      this.$store.commit('addCookies', amount);
+      this.$store.commit('player/addCookies', amount);
     },
   },
 };

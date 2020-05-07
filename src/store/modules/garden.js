@@ -58,6 +58,20 @@ const gardenModule = {
 
       dispatch('syncSlots');
     },
+    checkEmptySlot({ state }) {
+      return new Promise((resolve) => {
+        let slot = false;
+
+        for (let index = 0; index < state.slots.length; index += 1) {
+          const s = state.slots[index];
+          if (s === null && slot === false) {
+            slot = index;
+          }
+        }
+
+        resolve(slot);
+      });
+    },
   },
 };
 

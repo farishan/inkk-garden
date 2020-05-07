@@ -2,33 +2,41 @@ import { priceConverter } from '../../../utils';
 
 const actions = {
   // Mediator between Shop and Player
-  buyPlant({ state, dispatch, commit }, plant) {
-    if (state.player.cookies >= plant.price) {
-      commit('addCookies', plant.price * -1);
-      dispatch('wrapPlant', plant).then((wrappedPlant) => {
-        wrappedPlant.setPosition(state.player.plants.length);
-        commit('addPlant', wrappedPlant);
-        dispatch('sync');
+  buyPlant({ dispatch, commit }, plant) {
+    dispatch('player/checkCookies', plant.price)
+    // HACK: garden?? i thought you say this is shop and player mediator??
+      .then(() => dispatch('garden/checkEmptySlot'))
+      .then((slotIndex) => {
+        if (slotIndex || slotIndex === 0) {
+          commit('player/addCookies', plant.price * -1);
+          dispatch('wrapPlant', plant).then((wrappedPlant) => {
+            wrappedPlant.setPosition(slotIndex);
+            commit('player/addPlant', wrappedPlant);
+            dispatch('sync');
+          });
+        } else {
+          dispatch('alert/show', 'no empty slot.');
+        }
+      })
+      .catch(() => {
+        dispatch('alert/show', 'not enough cookies.');
       });
-    } else {
-      dispatch('alert/show', 'not enough cookies.');
-    }
   },
   // eslint-disable-next-line no-empty-pattern
   sellPlant({ state, dispatch, commit }, plant) {
     console.log('sell plant', plant);
     // get converted price
     const cookiesToAdd = priceConverter(100 - state.config.priceCut, plant.price);
-    commit('addCookies', cookiesToAdd);
+    commit('player/addCookies', cookiesToAdd);
     // remove plant
-    dispatch('removePlant', plant);
+    dispatch('player/removePlant', plant);
   },
   buyWateringCan({ state, commit, dispatch }, can) {
     // Check if player already have that can
     if (state.player.wateringCanIds.indexOf(can.id) === -1) {
       if (state.player.cookies >= can.price) {
-        commit('addCookies', can.price * -1);
-        dispatch('addWateringCan', can.id);
+        commit('player/addCookies', can.price * -1);
+        dispatch('player/addWateringCan', can.id);
       } else {
         dispatch('alert/show', 'not enough cookies.');
       }
@@ -40,8 +48,8 @@ const actions = {
     // Check if player already bought sprinkler
     if (state.player.sprinkler === null) {
       if (state.player.cookies >= price) {
-        commit('addCookies', price * -1);
-        commit('addSprinkler');
+        commit('player/addCookies', price * -1);
+        commit('player/addSprinkler');
       } else {
         dispatch('alert/show', 'not enough cookies.');
       }
@@ -53,8 +61,8 @@ const actions = {
     // Check if player already bought sprinkler
     if (state.player.collector === null) {
       if (state.player.cookies >= price) {
-        commit('addCookies', price * -1);
-        commit('addCollector');
+        commit('player/addCookies', price * -1);
+        commit('player/addCollector');
       } else {
         dispatch('alert/show', 'not enough cookies.');
       }

@@ -23,6 +23,13 @@ const actions = {
   selectWateringCan: waterActions.selectWateringCan,
   deselectWateringCan: waterActions.deselectWateringCan,
   useCan: waterActions.useCan,
+  checkCookies: ({ state }, amount) => new Promise((resolve, reject) => {
+    if (state.cookies >= amount) {
+      resolve();
+    } else {
+      reject();
+    }
+  }),
 };
 
 const mutations = {
@@ -42,6 +49,7 @@ const mutations = {
 };
 
 export default {
+  namespaced: true,
   state,
   actions,
   mutations,

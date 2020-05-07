@@ -47,7 +47,7 @@ export default {
     this.$store.dispatch('start');
 
     // Add initial watering can
-    this.$store.dispatch('addWateringCan', 1);
+    this.$store.dispatch('player/addWateringCan', 1);
   },
 };
 </script>
