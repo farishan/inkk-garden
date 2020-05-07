@@ -19,6 +19,11 @@ const timeModule = {
   }),
   getters: {
     period: (state) => (state.periods % 2 === 0 ? 'day' : 'night'),
+    dataToSave(state) {
+      return {
+        periods: state.periods,
+      };
+    },
   },
   actions: {
     start({ commit, dispatch }) {
@@ -47,6 +52,12 @@ const timeModule = {
 
       loop(last);
     },
+    setDataToLoad({ commit }, data) {
+      const {
+        periods,
+      } = data;
+      commit('setTime', periods);
+    },
   },
   mutations: {
     switch(state, value) {
@@ -67,6 +78,10 @@ const timeModule = {
     },
     addDay(state) {
       state.days = Math.floor(state.periods / 2);
+    },
+    setTime(state, periods) {
+      state.periods = periods;
+      state.days = Math.floor(periods / 2);
     },
   },
 };

@@ -5,8 +5,8 @@ import time from './modules/time.store';
 import player from './modules/player';
 import plants from './modules/plants';
 import watering from './modules/watering';
-import garden from './modules/garden';
 import sprinkler from './modules/sprinkler';
+import garden from './modules/garden.store';
 import collector from './modules/collector';
 import shop from './modules/shop.store';
 import mediator from './modules/mediator';
@@ -69,6 +69,21 @@ export default new Vuex.Store({
     buyCollector: mediator.shopAndPlayer.buyCollector,
     unlockNextTier: mediator.shopAndPlayer.unlockNextTier,
     unlockTools: mediator.shopAndPlayer.unlockTools,
+    getDataToSave({ getters }) {
+      return new Promise((resolve) => {
+        resolve({
+          shop: getters['shop/dataToSave'],
+          player: getters['player/dataToSave'],
+          time: getters['time/dataToSave'],
+        });
+      });
+    },
+    setDataToLoad({ dispatch }, data) {
+      console.log(data);
+      dispatch('shop/setDataToLoad', data.shop);
+      dispatch('player/setDataToLoad', data.player);
+      dispatch('time/setDataToLoad', data.time);
+    },
   },
   modules: {
     alert,

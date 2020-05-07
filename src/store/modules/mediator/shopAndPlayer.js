@@ -92,7 +92,7 @@ const actions = {
     dispatch('player/checkCookies', state.shop.unlockToolsPrice)
       .then(() => {
         commit('player/addCookies', state.shop.unlockToolsPrice * -1);
-        commit('shop/unlockTools');
+        commit('shop/setToolsLock', false);
       })
       .catch(() => {
         dispatch('alert/show', 'not enough cookies.');

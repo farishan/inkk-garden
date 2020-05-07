@@ -5,19 +5,19 @@ import Plant from '../plants/plant';
 export default {
   addPlant({
     dispatch,
-    state,
+    // state,
     commit,
     rootGetters,
   }, id) {
     const plant = rootGetters.getPlantById(id);
+    // console.log(`typeId: ${id}`);
     // Generate new plant
     const newPlant = new Plant({
       ...plant,
       id: ID(),
-      position: state.plants.length,
     });
 
-    console.log('Add plant to player:', newPlant, newPlant.position, state.plants.length);
+    // console.log('Add plant to player:', newPlant, newPlant.position, state.plants.length);
 
     commit('addPlant', newPlant);
 
@@ -44,6 +44,18 @@ export default {
   },
   removePlant({ commit, dispatch }, plant) {
     commit('removePlant', plant);
+    dispatch('sync', null, { root: true });
+  },
+  setPlants({ commit, dispatch }, plants) {
+    const result = [];
+    for (let index = 0; index < plants.length; index += 1) {
+      const plant = plants[index];
+      const newPlant = new Plant({
+        ...plant,
+      });
+      result.push(newPlant);
+    }
+    commit('setPlants', result);
     dispatch('sync', null, { root: true });
   },
 };

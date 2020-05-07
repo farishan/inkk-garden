@@ -3,6 +3,7 @@ import { random } from '@/utils';
 class Plant {
   constructor(options) {
     this.id = options.id || 0;
+    this.typeId = options.typeId || null;
     this.name = options.name;
     this.description = options.description;
     this.image = options.image;
@@ -15,18 +16,18 @@ class Plant {
     // 0 = seed
     // 1 = budding
     // 2 = producing
-    this.stage = 0;
-    this.progress = 0;
-    this.growthRate = 0;
+    this.stage = options.stage || 0;
+    this.progress = options.progress || 0;
+    this.growthRate = options.growthRate || 0;
     this.dailyGrowth = options.dailyGrowth;
-    this.ready = false;
-    this.cookieHealth = 21;
-    this.defaultCookieHealth = 21;
+    this.ready = options.ready || false;
+    this.cookieHealth = options.cookieHealth || 21;
+    this.defaultCookieHealth = options.defaultCookieHealth || 21;
     this.water = options.waterCapacity;
     this.waterCapacity = options.waterCapacity;
-    this.dry = false;
-    this.health = 21;
-    this.defaultHealth = 21;
+    this.dry = options.dry || false;
+    this.health = options.health || 21;
+    this.defaultHealth = options.defaultHealth || 21;
     this.isDead = false;
   }
 

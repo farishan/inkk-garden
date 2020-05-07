@@ -13,6 +13,8 @@
         <!-- <router-link class="nav-item" to="/plants">Plants</router-link> -->
         <!-- <router-link class="nav-item" to="/watering-cans">W. Cans</router-link> -->
         <router-link class="nav-item" to="/player">Player</router-link>
+        <a href="#" class="nav-item" @click="save">Save</a>
+        <a href="#" class="nav-item" @click="load">Load</a>
       </div>
     </div>
     <Alert />
@@ -25,6 +27,7 @@ import '@/assets/tailwind.css';
 import Time from '@/components/Time.vue';
 import Alert from '@/components/Alert.vue';
 import PlayerCookies from '@/components/PlayerCookies.vue';
+import saloimex from '@/utils/saloimex';
 
 export default {
   components: {
@@ -40,6 +43,22 @@ export default {
   mounted() {
     console.log(this);
     this.$store.dispatch('init');
+  },
+  methods: {
+    save() {
+      // console.log(saloimex);
+      // console.log(this.$store.getters.dataToSave);
+      // saloimex.save(this.$store.state);
+
+      this.$store.dispatch('getDataToSave').then((data) => {
+        saloimex.save(data);
+        this.$store.dispatch('alert/show', 'game saved.');
+        // console.log(data);
+      });
+    },
+    load() {
+      this.$store.dispatch('setDataToLoad', saloimex.load());
+    },
   },
 };
 </script>

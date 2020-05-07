@@ -1,4 +1,8 @@
 export default {
+  resetWateringCans(state) {
+    state.wateringCans = [];
+    state.wateringCanIds = [];
+  },
   addWateringCan(state, can) {
     state.wateringCans.push(can);
     state.wateringCanIds.push(can.id);

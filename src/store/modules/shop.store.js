@@ -41,10 +41,19 @@ const shopModule = {
     nextTier(state) {
       return state.tiers.find((t) => t.id === state.activeTierId + 1);
     },
+    dataToSave(state) {
+      return {
+        activeTierId: state.activeTierId,
+        toolsLocked: state.toolsLocked,
+      };
+    },
   },
   actions: {
-    init({ commit, dispatch }) {
-      commit('setActiveTierId', 1);
+    init({ dispatch }) {
+      dispatch('setTier', 1);
+    },
+    setTier({ commit, dispatch }, id) {
+      commit('setActiveTierId', id);
       commit('setCurrentTier');
       dispatch('setPlants');
     },
@@ -52,6 +61,7 @@ const shopModule = {
       return new Promise((resolve) => {
         const newPlant = new Plant({ ...plant });
         newPlant.id = ID();
+        newPlant.typeId = plant.id;
         newPlant.boughtAt = rootState.time.periods;
         // console.log('new plant:', newPlant);
         resolve(newPlant);
@@ -68,6 +78,15 @@ const shopModule = {
         dispatch('setPlants');
       }
     },
+    setDataToLoad({ commit, dispatch }, data) {
+      const {
+        activeTierId,
+        toolsLocked,
+      } = data;
+
+      dispatch('setTier', activeTierId);
+      commit('setToolsLock', toolsLocked);
+    },
   },
   mutations: {
     setActiveTierId(state, id) {
@@ -80,8 +99,8 @@ const shopModule = {
     setPlants(state, plants) {
       state.plants = plants;
     },
-    unlockTools(state) {
-      state.toolsLocked = false;
+    setToolsLock(state, value) {
+      state.toolsLocked = value;
     },
   },
 };
