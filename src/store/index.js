@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import time from './modules/time';
+import time from './modules/time.store';
 import player from './modules/player';
 import plants from './modules/plants';
 import watering from './modules/watering';
@@ -24,6 +24,13 @@ export default new Vuex.Store({
   mutations: {
   },
   actions: {
+    init({ dispatch }) {
+      // Starting time
+      dispatch('time/start');
+
+      // Add initial watering can
+      dispatch('player/addWateringCan', 1);
+    },
     sync({ dispatch }) {
       dispatch('garden/syncSlots');
     },

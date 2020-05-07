@@ -6,12 +6,12 @@
         <img
           class="mx-auto"
           src="/images/sun.png"
-          v-show="$store.getters.period === 'day'"
+          v-show="$store.getters['time/period'] === 'day'"
         />
         <img
           class="mx-auto"
           src="/images/moon.png"
-          v-show="$store.getters.period === 'night'"
+          v-show="$store.getters['time/period'] === 'night'"
         />
       </div>
     </div>

@@ -41,29 +41,29 @@ export default {
   methods: {
     toggle() {
       if (this.$store.state.time.on) {
-        this.$store.commit('switch', false);
+        this.$store.commit('time/switch', false);
       } else {
-        this.$store.dispatch('start');
+        this.$store.dispatch('time/start');
       }
     },
     start() {
-      this.$store.commit('normal');
-      this.$store.commit('switch', false);
+      this.$store.commit('time/normal');
+      this.$store.commit('time/switch', false);
 
       setTimeout(() => {
-        this.$store.dispatch('start');
+        this.$store.dispatch('time/start');
       }, 300);
     },
     pause() {
-      this.$store.commit('normal');
-      this.$store.commit('switch', false);
+      this.$store.commit('time/normal');
+      this.$store.commit('time/switch', false);
     },
     fast() {
-      this.$store.commit('fast');
-      this.$store.commit('switch', false);
+      this.$store.commit('time/fast');
+      this.$store.commit('time/switch', false);
 
       setTimeout(() => {
-        this.$store.dispatch('start');
+        this.$store.dispatch('time/start');
       }, 300);
     },
   },

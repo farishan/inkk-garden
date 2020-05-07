@@ -42,12 +42,7 @@ export default {
   },
   mounted() {
     console.log(this);
-
-    // Starting time
-    this.$store.dispatch('start');
-
-    // Add initial watering can
-    this.$store.dispatch('player/addWateringCan', 1);
+    this.$store.dispatch('init');
   },
 };
 </script>
