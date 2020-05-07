@@ -50,9 +50,11 @@ const gardenModule = {
       const plant1 = state.slots[data.from];
       const plant2 = state.slots[data.to];
 
-      plant1.position = data.to;
+      if (plant1) {
+        plant1.position = data.to;
+      }
 
-      if (plant2 !== null) {
+      if (plant2 && plant2 !== null) {
         plant2.position = data.from;
       }
 
