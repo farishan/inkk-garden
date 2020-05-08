@@ -15,6 +15,7 @@
         <router-link class="nav-item" to="/player">Player</router-link>
         <router-link class="nav-item" to="/settings">Settings</router-link>
         <router-link class="nav-item" to="/statistics">Statistics</router-link>
+        <router-link class="nav-item text-sm py-1" to="/achievements">Achievements</router-link>
       </div>
     </div>
     <Alert />

@@ -7,6 +7,7 @@ import Garden from '../views/Garden.vue';
 import Shop from '../views/Shop.vue';
 import Settings from '../views/Settings.vue';
 import Statistics from '../views/Statistics.vue';
+import Achievements from '../views/Achievements.vue';
 import WateringCans from '../views/WateringCans.vue';
 
 Vue.use(VueRouter);
@@ -51,6 +52,11 @@ const routes = [
     path: '/statistics',
     name: 'statistics',
     component: Statistics,
+  },
+  {
+    path: '/achievements',
+    name: 'achievements',
+    component: Achievements,
   },
   // {
   //   path: '/about',
