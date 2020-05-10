@@ -12,6 +12,7 @@ import shop from './modules/shop.store';
 import mediator from './modules/mediator';
 import alert from './modules/alert';
 import statistics from './modules/statistics';
+import achievement from './modules/achievement';
 
 Vue.use(Vuex);
 
@@ -30,6 +31,7 @@ export default new Vuex.Store({
       // Add initial watering can
       dispatch('player/addWateringCan', 1);
       dispatch('shop/init');
+      dispatch('achievement/init');
     },
     sync({ dispatch }) {
       dispatch('garden/syncSlots');
@@ -100,5 +102,6 @@ export default new Vuex.Store({
     collector,
     shop,
     statistics,
+    achievement,
   },
 });
