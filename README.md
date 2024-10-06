@@ -1,5 +1,10 @@
 # inkk-garden
 
+## Requirements
+
+- Node v16 `nvm use 16`
+- Yarn `npm i -g yarn`
+
 ## Project setup
 ```
 yarn install
